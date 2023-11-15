@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Dashboard</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="css/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+<style>
+
+
+table, th, td,thead {
+  border: 1px solid black;
+  text-align: center;
+  height: 50px;
+  font-family: Source Sans Pro;
+  font-weight: normal;
+	
+}
+
+th
+{
+font-size: 25px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+   border-collapse: collapse;
+    border-radius: 10px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 1px #666;
+    background-color: #F0F0F0;
+}
+ #abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;
+  
+ 
+ } 
+ 
+ .navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+.chart-text {
+      font: 16px/1.4em "Montserrat", Arial, sans-serif;
+      fill: #000;
+      -moz-transform: translateY(0.25em);
+      -ms-transform: translateY(0.25em);
+      -webkit-transform: translateY(0.25em);
+      transform: translateY(0.25em);
+     
+    }
+
+    .chart-number {
+      font-size: 0.6em;
+      line-height: 1;
+      text-anchor: middle;
+      -moz-transform: translateY(-0.25em);
+      -ms-transform: translateY(-0.25em);
+      -webkit-transform: translateY(-0.25em);
+      transform: translateY(-0.25em);
+       color:red;
+    }
+
+    .chart-label {
+      font-size: 0.2em;
+      text-transform: uppercase;
+      text-anchor: middle;
+      -moz-transform: translateY(0.7em);
+      -ms-transform: translateY(0.7em);
+      -webkit-transform: translateY(0.7em);
+      transform: translateY(0.7em);
+      color:red;
+    }
+</style>
+
+		
+</head>	
+	
+<body>
+
+
+ <nav class="navbar navbar-default" role="navigation" id="abc" style="background-color: #ED1B26">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+    <a class="navbar-brand" href="#" style="color: white;font-family: 'Source Sans Pro', sans-serif;font-size: 30px;">DASHBOARD</a>
+  </div>
+  
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left" >
+    <li ><a href="#"></a></li>
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+
+<li><a style="color: white;"><b id="welcome"></b></a></li>
+ <li><a href="dashboardlogin.html" style="color: white;"><b>Logout</b></a></li>
+
+
+</ul>
+  </div>
+ 
+</nav>
+  
+  
+   <div class="container" >
+   <div class="row">
+    <div class="col-sm-2">
+   </div>
+   <div class="col-sm-8" style="border-bottom: 1px solid grey">
+   <P style="font-family: Source Sans Pro, sans-serif;color: grey;font-size: 30px">DEALER KNOWLEDGEABLE INDEX</P>
+   </div>
+    <div class="col-sm-2">
+   </div>
+   </div>
+  </div>
+  
+  <br>
+  
+<div class="container" >
+   <div class="row">
+    <div class="col-sm-3">
+   </div>
+   <div class="col-sm-2">
+   <h3 style="text-align: center">2019</h3>
+    <svg viewBox="0 0 42 42" class="donut">
+   
+  <circle class="donut-hole" cx="21" cy="21" r="25.91549430918954" fill="#fff"></circle>
+  <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+
+  <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#7FEF7C" id="shape1" stroke-dasharray="" stroke-width="3"></circle>
+ <g class="chart-text">
+        <text x="50%" y="50%" class="chart-number" id="insert1">
+          57 
+        </text>
+        <text x="50%" y="50%" class="chart-label">
+        Avg
+        </text>
+      </g>
+</svg>
+</div>
+  <div class="col-sm-2">
+  <h3 style="text-align: center">2018</h3>
+   <svg viewBox="0 0 42 42" class="donut">
+   
+  <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+  <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+
+  <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#F06E66" id="shape2"  stroke-dasharray="" stroke-width="3"></circle>
+ <g class="chart-text">
+        <text x="50%" y="50%" class="chart-number" id="insert2">
+          57 
+        </text>
+        <text x="50%" y="50%" class="chart-label">
+        Avg
+        </text>
+      </g>
+</svg>
+</div>
+
+  <div class="col-sm-2">
+  <h3 style="text-align: center">2017</h3>
+   <svg  viewBox="0 0 42 42" class="donut">
+  <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+  <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+
+  <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" id="shape3" fill="transparent" stroke="#6DDAD8" stroke-width="3" stroke-dasharray=""></circle>
+<g class="chart-text">
+        <text x="50%" y="50%" class="chart-number" id="insert3">
+          57 
+        </text>
+        <text x="50%" y="50%" class="chart-label">
+        Avg
+        </text>
+      </g>
+</svg>
+
+</div>
+<div class="col-sm-3">
+   </div>
+
+</div>
+</div>
+
+<div class="container">
+ <div class="row">
+    <div class="col-sm-3">
+   </div>
+   
+    <div class="col-sm-2" style="font-family: Source Sans Pro, sans-serif;margin-left: 3%;">
+ <img alt="" src="homepage/dot.png"><b id="s1" style="margin-left: 3%;"></b><br> 
+  <img alt="" src="homepage/dot.png"><b id="s2" style="margin-left: 3%;"></b><br> 
+ </div>
+ 
+   <div class="col-sm-2" style="font-family: Source Sans Pro, sans-serif;">
+ <img alt="" src="homepage/dot.png"><b id="s3" style="margin-left: 2%;"></b>  <br> 
+   <img alt="" src="homepage/dot.png"><b id="s4" style="margin-left: 2%;"></b><br> 
+ 
+ </div>
+ 
+   <div class="col-sm-2" style="font-family: Source Sans Pro, sans-serif;">
+ <img alt="" src="homepage/dot.png"><b id="s5" style="margin-left: 2%;"></b>  <br> 
+   <img alt="" src="homepage/dot.png"><b id="s6" style="margin-left: 2%;"></b><br> 
+ 
+ </div>
+ 
+ </div>
+</div>
+
+<br>
+
+
+
+ <div class="container" >
+   <div class="row">
+    <div class="col-sm-5">
+   </div>
+   <div class="col-sm-4" >
+   </div>
+   <!--  <div class="col-sm-2">
+    <a href="DealerKi.html"><img alt="" src="img/Group 2 (2).png" style="width: 100px"></a>
+   </div> -->
+   </div>
+  </div>
+
+	<br>
+	   <div class="container" >
+   <div class="row">
+    <div class="col-sm-2">
+   </div>
+   <div class="col-sm-8" style="border-bottom: 1px solid grey">
+   <P style="font-family: 'Source Sans Pro', sans-serif;color: grey;font-size: 30px;">EXAM SUMMARY</P>
+   </div>
+    <div class="col-sm-2">
+   </div>
+   </div>
+  </div>
+  
+  <br>
+  <br>
+	   <div class="container" >
+   <div class="row">
+    <div class="col-sm-2">
+   </div>
+   <div class="col-sm-8" >
+  <b style="font-family: 'Source Sans Pro', sans-serif;font-size: 20px;">Select Exam :</b>
+ <select style="width: 40%; height:30px;background-color: #F0F0F0; " id="selectBox" onChange = "toyotaway()">
+  <option value="1" >- - - - -</option>
+  <option value="2" id="abcd1" ></option>
+  <option value="3" id="abcd2" ></option>
+  <option value="4" id="abcd3" ></option>
+  <option value="5" id="abcd4" ></option>
+   <option value="6" id="abcd5" ></option>
+</select>
+   </div>
+    <div class="col-sm-2">
+   </div>
+   </div>
+  </div>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+	<div class="row">
+	<div class="col-sm-2">
+   </div>  
+   <div class="col-sm-8">
+  
+  <table>
+    <thead >
+    <tr style="font-size: 10px;color: #444444;font-family: 'Source Sans Pro', sans-serif;">
+<th><b>NAME</b></th>
+<th><b>DATE</b></th>
+<th ><b>ATTEMPT</b></th>
+<th><b>SCORE</b></th>
+<th><b>EXAM-MARKS</b></th>
+<th><b>RESULT</b></th>
+</tr>
+</thead>
+<tbody style="font-size: 18px;font-family: 'Source Sans Pro', sans-serif;"  id="bodypage">
+</tbody>
+  </table>
+   </div>     
+  <div class="col-sm-2">
+   </div>
+   </div>
+</div>
+	
+	<br>
+	<br>
+
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function() 
+		{
+	
+			var login_id =	localStorage.getItem("login_id");
+			var dashboard =	localStorage.getItem("dashboard");
+			
+			document.getElementById('welcome').innerHTML = "Welcome,"+" "+login_id;
+			
+			$.ajax({   
+		        
+				
+		        url:"https://toyota-lakshya-onlineassessment.in/api/get_ki/?login_id="+login_id+"&dashboard="+dashboard+"",
+		       	type:"get",
+		       	data: "json",
+		        success: function(data)
+		      {    
+		        	
+		        	var half1 = (JSON.stringify(data.ki_main[0]["H1"]));
+		        	var half2 = (JSON.stringify(data.ki_main[0]["H2"]));
+		        	var ki_main3 = (JSON.stringify(data.ki_main[0]["KI"]));
+		        	
+		        	var half3 = (JSON.stringify(data.ki_main[1]["H1"]));
+		        	var half4 = (JSON.stringify(data.ki_main[1]["H2"]));
+		        	var ki_main6 = (JSON.stringify(data.ki_main[1]["KI"]));
+		        	
+		        	
+		        	var half5 = (JSON.stringify(data.ki_main[2]["H1"]));
+		        	var half6 = (JSON.stringify(data.ki_main[2]["H2"]));
+		        	var ki_main9 = (JSON.stringify(data.ki_main[2]["KI"]));
+		        	
+		        	
+		        	document.getElementById('insert1').innerHTML = ki_main3;
+		        	document.getElementById('insert2').innerHTML = ki_main6;
+		        	document.getElementById('insert3').innerHTML = ki_main9;
+		        	
+		        	document.getElementById('s1').innerHTML = "1st Half Ki" + "-" + half1;
+		        	document.getElementById('s2').innerHTML = "2nd Half Ki" + "-" + half2;
+		        	document.getElementById('s3').innerHTML = "1st Half Ki" + "-" + half3;
+		        	document.getElementById('s4').innerHTML = "2nd Half Ki" + "-" + half4;
+		        	document.getElementById('s5').innerHTML = "1st Half Ki" + "-" + "";
+		        	document.getElementById('s6').innerHTML = "2nd Half Ki" + "-" +" ";
+		        	
+		        	
+		        	
+		        	if(ki_main9 == "null")
+		        		{
+		        		document.getElementById('insert3').innerHTML = "NA";
+		        		
+		        		}
+		        	if(ki_main3 == "null")
+	        		{
+	        		document.getElementById('insert3').innerHTML = "NA";
+	        		}
+		        	if(ki_main6 == "null")
+	        		{
+	        		document.getElementById('insert3').innerHTML = "NA";
+	        		}
+		        	
+		        
+		        	
+		        	
+		       }
+
+		});
+				
+		});
+
+
+
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function() 
+		{
+	
+	$.ajax({   
+	    
+		
+	    url:"https://toyota-lakshya-onlineassessment.in/api/get_exam_names/",
+	   	type:"get",
+	   	data: "json",
+	    success: function(data)
+	  {    
+	    	
+	    	for ( var i = 0; i < data.length; i++)
+	    	{
+	    		
+	    		
+	    	var exam_name1 = data[0].exam_name;
+	    	var exam_name2 = data[1].exam_name;
+	    	var exam_name3 = data[2].exam_name;
+	    	var exam_name4 = data[3].exam_name;
+	    	var exam_name5 = data[4].exam_name;
+	    	
+	    	localStorage.setItem("exam_name1",exam_name1);
+	    	localStorage.setItem("exam_name2",exam_name2);
+	    	localStorage.setItem("exam_name3",exam_name3);
+	    	localStorage.setItem("exam_name4",exam_name4);
+	    	localStorage.setItem("exam_name5",exam_name5);
+
+	    	
+	    	var exam_id1 = data[0].exam_id;
+	    	var exam_id2 = data[1].exam_id;
+	    	var exam_id3 = data[2].exam_id;
+	    	var exam_id4 = data[3].exam_id;
+	    	var exam_id5 = data[4].exam_id;
+
+	    	
+	    	localStorage.setItem("exam_id1",exam_id1);
+	    	localStorage.setItem("exam_id2",exam_id2);
+	    	localStorage.setItem("exam_id3",exam_id3);
+	    	localStorage.setItem("exam_id4",exam_id4);
+	    	localStorage.setItem("exam_id5",exam_id5);
+	    	
+	    	document.getElementById("abcd1").innerHTML = exam_name1;
+	    	document.getElementById("abcd2").innerHTML = exam_name2;
+	    	document.getElementById("abcd3").innerHTML = exam_name3;
+	    	document.getElementById("abcd4").innerHTML = exam_name4;
+	    	document.getElementById("abcd5").innerHTML = exam_name5;
+
+	    	
+	   		}
+	  }
+
+	});
+
+		});
+
+
+</script>
+
+<script type="text/javascript">
+
+window.onload = function()
+{
+	var selectBox = document.getElementById("selectBox");
+	selectBox.addEventListener('change', toyotaway);
+	
+	
+function toyotaway()
+{
+	
+	var login_id =	localStorage.getItem("login_id");
+	
+	var page1 = 
+
+		"<tr><td>name</td><td>date</td><td >numberofattempts</td><td>score</td><td>exam_marks</td><td><img src=\"image1\"></td></tr>";
+		
+		
+		var collection ="";
+
+	if(this.value == 2)
+		{
+		var exam_id=localStorage.getItem("exam_id1");
+		
+		}
+	
+	if(this.value == 3)
+		{
+		var exam_id=localStorage.getItem("exam_id2");
+		
+		}
+	
+	if(this.value == 4)
+	{
+		var exam_id=localStorage.getItem("exam_id3");
+		
+
+	}
+	
+	
+	if(this.value == 5)
+	{
+		var exam_id=localStorage.getItem("exam_id4");
+		
+
+	}
+	
+	if(this.value == 6)
+	{
+		var exam_id=localStorage.getItem("exam_id5");
+		
+
+	}
+	
+$.ajax({
+			
+        
+        url:"https://toyota-lakshya-onlineassessment.in/api/exam_summary_dealer/?dlr_code="+login_id+"&exam="+exam_id+"",
+       	type:"GET",
+       	data: "json",
+        success: function(data)
+	      {  
+	        	
+	        	
+	        	for ( var i = 0; i < data.length; i++)
+	        	{
+	        		
+	        		
+	                 	var ele = "";
+						ele = page1;
+	                 	
+	        		
+	        	
+	        	var date = data[i].date;
+	        	var attempts = data[i].attempts;
+	        	var score = data[i].score;
+	        	var name = data[i].name;
+	        	var result = data[i].result;
+	        	var exam_marks = data[i].exam_marks;
+	        	
+	        	ele = ele.replace("name", name);
+  				ele = ele.replace("date", date);
+  				ele = ele.replace("numberofattempts", attempts);
+  				ele = ele.replace("score", score);
+  				
+  				ele = ele.replace("exam_marks", exam_marks);
+  				
+    			var images = new Array()
+        		images[0] = "img/PASS.png";
+        		images[1] = "img/FAIL.png";
+    			
+    			if(result == true)
+    				{
+    				ele = ele.replace("image1", images[0]);
+    				}
+    			else
+    				{
+    				ele = ele.replace("image1", images[1]);
+    				}
+    			
+    			
+  			collection += ele;
+	        	
+	        	}
+	        	
+	            $("#bodypage").html(collection); 
+	          
+	        	
+	       }
+
+	
+	
+});
+
+}
+
+
+}
+
+
+</script>
+
+<script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
+
+
+</body>
+</html>

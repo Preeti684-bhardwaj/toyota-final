@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(255,0,0,0);
+    -moz-box-shadow: 0px 0px 0px 1px rgba(255,0,0,0);
+    box-shadow: 0px 0px 0px 1px rgba(255,0,0,1);
+   
+}
+
+
+
+button {
+   outline: none;
+   border: 0px solid;
+   background: transparent;
+   color: white;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ytp-play-button {
+   fill: #fff;
+   opacity: 0.85;
+}
+
+.ytp-play-button:hover {
+   cursor: pointer;
+   opacity: 1;
+}
+ 
+   span.a {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 150px;
+  padding: 20px;
+  border: 1px solid grey;  
+  
+  
+}
+  
+ .info
+ {
+ color: black;
+ }
+ 
+ .info:focus
+ {
+ background: red;
+ color: white;
+ }
+   
+ .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  
+}
+
+
+ 
+
+.invisible {
+  display: none;
+}
+.text-center {
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin: auto;
+}
+
+label {
+  padding-right: 10px;
+  width: 25%;
+  vertical-align: top;
+  margin-top: 10px;
+}
+ 
+  input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+ 
+ input[type=text] {
+  width: 40%;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid #545454;
+}
+ 
+  #xyz{
+  
+   /* background-color: #e6e6e6; */
+  box-shadow: 0px 1px 10px black;
+  
+  }
+  
+ #abc
+ {
+ 
+ background-image:url('img/Rectangle 1.png');
+ 
+ }
+  
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 230px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Exam Summary</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="css/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/mobile.css">
+
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ 
+ 
+ 
+ <style>
+
+
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+
+
+#abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;
+  
+ 
+ } 
+
+
+#padding
+{
+padding:15px;
+}
+
+h4{
+  display: inline-block;
+  margin: 5px;
+  font-size: 15px !important;
+}
+
+
+.navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar {
+    height: 60px;
+}
+
+.navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar {
+    height: 60px;
+}
+
+
+</style>
+
+		
+</head>	
+	
+<body>
+
+
+
+
+  <nav class="navbar navbar-default" role="navigation" style="background-color:#ED1B26">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+     
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="68px;height:20px"></a></li>
+        <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Exam Summary</a></li>
+        <li class="social pull-right" style="visibility: hidden;"><a href="#">Social Links</a></li>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </nav>
+
+    
+
+  
+<div class="container">
+<div class="well" style="width: 100%;">
+<div class="row">
+
+<div class="col-sm-2">
+
+</div>
+
+
+<div class="col-sm-5">
+  <h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Test Name : </b><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name"></b></b></h4>
+  <br>
+   <h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Total No of Questions : </b></h4><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name1"></b></b></h4>
+   <br>
+    <h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Number of Questions Answered : </b></h4><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name2"></b></b></h4>
+    <br>
+     <h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Number of Questions Skipped : </b></h4><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name3"></b></b></h4>
+     
+     <br>
+     <h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Number of Attempts : </b></h4><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name4"></b></b></h4>
+<br>
+
+<h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;"><b>Score : </b></h4><h4 style="font-family:'Source Sans Pro', sans-serif;font-size: 20px;color:#444444;height: 20px;float: right;"><b id="test_name5"></b></b></h4>
+
+  </div>
+ 
+ 
+  <div id="bodypage"></div>
+  
+
+
+<div class="col-sm-1">
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="container" style="text-align: center;">
+
+<div class="col-sm-12">
+<h1 style="color: red;font-family: 'Source Sans Pro', sans-serif;">Thank You !</h1>
+</div>
+
+</div>
+
+
+
+
+<div class="container" style="text-align: center;margin-top: 10px;">
+
+<div class="col-sm-12" style="font-family: calibri regular">
+    <a href="https://tkmserviceelearning.com/"> <img src="img1/exit.png"> </a>
+</div>
+
+
+</div>
+ 
+<br>
+
+
+<script type="text/javascript">
+
+
+	
+		var lakshya_id=localStorage.getItem("lakshya_id");
+		var assessment_id = localStorage.getItem("assessment_id");
+		
+		
+$(document).ready(function() 
+		{
+		$.ajax({   
+        
+			 url:"https://toyota-lakshya-onlineassessment.in/api/get_summary/?login_id="+lakshya_id+"&assessment_id="+assessment_id+"",
+			 type:"get",
+       		 data: "json",
+       	
+        success: function(data)
+        {    
+        				var obj = data;
+        	
+        				var testname = localStorage.getItem("name");                 		
+                 		
+                 		
+                 		var image1 = data.total_questions;
+        				var cate1 = data.attended_questions;
+        				var cat = data.skipped_questions;
+        			
+        			
+                document.getElementById('test_name').innerHTML = testname;
+                document.getElementById('test_name1').innerHTML = image1;
+
+                document.getElementById('test_name2').innerHTML = cate1;
+                document.getElementById('test_name3').innerHTML = cat;
+                document.getElementById('test_name4').innerHTML = data.attempt;
+
+        			
+                if(data.score == null)
+                {
+                  document.getElementById('test_name5').innerHTML = "";
+
+                }
+                else
+                {
+                  document.getElementById('test_name5').innerHTML = data.score;
+
+                }
+
+        	
+            
+        }
+
+    });
+});
+
+
+</script>
+
+
+<script type="text/javascript">
+
+var url=localStorage.getItem("access");
+
+
+if(url == 0)
+	{
+	
+	 window.location.href = "#";
+	 localStorage.removeItem("access");
+
+	}
+else 
+{
+	
+ 	//window.location.href="https://tkmserviceelearning.com/";
+ 	
+}
+
+
+</script>
+
+
+<script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script> 
+
+
+
+</body>
+</html>
+
+
+
+

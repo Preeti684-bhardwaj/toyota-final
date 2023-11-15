@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/css/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="jar/jquery-1.11.1.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+ 
+ <link href="css/bootstrap-select.css" rel="stylesheet">
+ <link href="css/bootstrap-select.min.css" rel="stylesheet">
+
+ <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+
+<title>SC LIST chart </title>
+<style>
+
+
+#mybox
+{
+   text-align:center;
+   background-color: #f9f9f9;
+   box-shadow: 1px 1px 5px grey;
+   border-radius: 4px;
+  
+}
+
+ #abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;
+  
+ 
+ } 
+ 
+ .navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+</style>
+
+		
+</head>	
+	
+<body style="background-color: #E6E6E6">
+
+
+ <nav class="navbar navbar-default" role="navigation" id="abc" style="background-color: #ED1B26">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+    <a class="navbar-brand" href="#" style="color: white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">SC List</a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left" >
+        <li ><a href="#"></a></li>
+    </ul>
+  <ul class="nav navbar-nav navbar-right">
+
+<li><a href="InvgLogin.html" style="color: white;font-family:Calibri regular;"><img src="img/back.png" style="width: 32px;height: 26px;"><p style="padding-left: 4px"><span></span></p></a></li>
+
+</ul>
+  </div>
+</nav>
+<br>
+<br>
+
+
+
+ <div class="container">
+ <div class="row">
+ <div class="col-sm-4" style="margin-left: 35%">
+ <b style="font-family: 'Source Sans Pro', sans-serif;font-size: 20px;" >Select Exam :</b>
+ <select id="bodypage2" class="selectpicker"  onChange="toyotaway()"></select>
+</div>
+</div>
+</div>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+  <div class="container"  id=mybox>
+  
+  <div class="col-sm-12" style=" border-bottom: 1px solid black;">
+  <div class="col-sm-3" style=" border-right: 1px solid black;"><h6><b style="font-family: calibri;color:RED;font-family: 'Source Sans Pro', sans-serif;font-size: 20px;"> LAKSHYA ID</b></h6></div>
+  <div class="col-sm-3" style=" border-right: 1px solid black;"><h6><b style="font-family: calibri;color:red;font-family: 'Source Sans Pro', sans-serif;font-size: 20px;">SC NAME</b></h6></div> 
+  <div class="col-sm-3" style=" border-right: 1px solid black;"><h6><b style="font-family: calibri;color:red;font-family: 'Source Sans Pro', sans-serif;font-size: 20px;">STATUS</b></h6></div> 
+ 
+  <div class="col-sm-3" ><h6><b style="font-family: calibri;color:red;font-family: 'Source Sans Pro', sans-serif;font-size: 20px;">ACTION</b></h6></div>
+  </div>
+ 
+  <div id="bodypage" >
+  </div>
+  <br>
+  <br>
+  </div>
+  <br>
+  <div class="container">
+  
+  </div>
+  	
+  
+
+
+<script type="text/javascript">
+
+$(document).ready(function() 
+{
+	
+	
+	var select = 
+	  "<option value=\"id\" id=\"abc\">opt_value</option><br>";
+	
+	
+	var option = "";
+
+
+	
+	var invigilator_id=localStorage.getItem("invigilator_id");
+
+	
+    var assessment_name1 = localStorage.getItem('assessment_name');
+    
+    var movies2 = JSON.parse(assessment_name1);
+
+
+
+    for ( var i = 0; i < movies2.length; i++)
+	{
+	    
+	    
+    	var opt ="";
+		
+    	opt =  select;
+    	
+    	var assessment_name = movies2[i].assessment_name;
+    	var id = movies2[i].id;
+    	//alert(id);
+
+    	opt = opt.replace("opt_value", assessment_name);
+    	opt = opt.replace("id", id);                	
+
+
+        option += opt;
+        
+        localStorage.setItem("id",id);
+
+	    
+	}
+    
+    $("#bodypage2").html(option);
+    
+    
+    var selectBox = document.getElementById("bodypage2");
+	selectBox.addEventListener('change', toyotaway);
+	
+
+function toyotaway()
+{
+
+	
+	var e = document.getElementById("bodypage2");
+	var ids = e.options[e.selectedIndex].value;
+
+	
+var invigilator_id1 =localStorage.getItem("invigilator_id");
+	
+	var inserting = "<div class=\"col-sm-12\" style=\" border-bottom: 1px solid black;\"><div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b id=\"bodys\"> lak_id </b></div>"+
+	 "<div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b id=\"variables\"> sc_name </b></div>"+
+	 "<div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b > image1 </b></div>"+
+
+	 "<div class=\"col-sm-3\" style = \"margin-top:10px;\"><button type=\"button\" id=\"assessment_id\" onclick=\"validate(this)\" value=\"\" class=\"btn btn-success\"><b>Evaluate</b></button></div>"+
+	 
+	 "</div><br><br>";
+	
+	var collec = "";
+	
+	
+$.ajax({
+			
+        
+        url:"https://toyota-lakshya-onlineassessment.in/api/get_invigilator_sc_list/?invigilator_id="+invigilator_id1+"&assessment_id="+ids+"",
+       	type:"GET",
+       	data: "json",
+        
+        success: function(data)
+        {  
+          alert(data)
+        	localStorage.setItem("id",ids);
+			
+        	for(var i = 0 ; i< data.length ; i++)
+            {
+        		
+            	var ele ="";
+            	
+            	var ele1="";
+            	
+            	ele = inserting;
+            	
+            	
+            	 var lakshya_id = data[i].lakshya_id;
+                 var sc_name = data[i].sc_name;
+                 var login_id = data[i].login_id;
+                 var status = data[i].already_evaluated;
+                 
+                 
+                 
+                 localStorage.setItem("l_id",lakshya_id);
+                 
+                 ele = ele.replace("lak_id",lakshya_id);
+                 ele = ele.replace("sc_name",sc_name);
+                 
+                 ele = ele.replace("assessment_id",login_id);
+                 
+
+                 if(status == true)
+                	 {
+                	 ele = ele.replace("image1", "Done");                	
+                	 }
+                 else
+                	 {
+                	 ele = ele.replace("image1", "Not Done");               
+                	 }
+                 
+                 collec += ele;
+                 
+            	
+            	}
+        	
+            $("#bodypage").html(collec);
+            
+
+            
+        }
+	
+	
+	
+});
+
+	
+}
+
+		
+	
+	
+});
+
+
+</script>
+
+
+
+
+ <script type="text/javascript">
+
+window.onload = function()
+{
+
+		
+var invigilator_id1 =localStorage.getItem("invigilator_id");
+	
+	var inserting = "<div class=\"col-sm-12\" style=\" border-bottom: 1px solid black;\"><div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b id=\"bodys\"> lak_id </b></div>"+
+	 "<div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b id=\"variables\"> sc_name </b></div>"+
+	 "<div class=\"col-sm-3\" style=\" border-right: 1px solid black;line-height: 50px;\"><b > image1 </b></div>"+
+
+	 "<div class=\"col-sm-3\" style = \"margin-top:10px;\"><button type=\"button\" id=\"assessment_id\" onclick=\"validate(this)\" value=\"\" class=\"btn btn-success\"><b>Evaluate</b></button></div>"+
+	 
+	 "</div><br><br>";
+	
+	var collec = "";
+
+	
+  var first_id = localStorage.getItem("first_id");
+
+	
+$.ajax({
+			
+        
+        url:"https://toyota-lakshya-onlineassessment.in/api/get_invigilator_sc_list/?invigilator_id="+invigilator_id1+"&assessment_id="+first_id+"",
+       	type:"GET",
+       	data: "json",
+        success: function(data)
+        {
+			
+          localStorage.setItem("id",first_id);
+
+        	for(var i = 0 ; i< data.length ; i++)
+            {
+        		
+            	var ele ="";
+            	
+            	var ele1="";
+            	
+            	ele = inserting;
+            	
+            	
+            	 var lakshya_id = data[i].lakshya_id;
+                 var sc_name = data[i].sc_name;
+                 var login_id = data[i].login_id;
+                 var status = data[i].already_evaluated;
+                 
+                 
+                 
+                 localStorage.setItem("l_id",lakshya_id);
+                 
+                 ele = ele.replace("lak_id",lakshya_id);
+                 ele = ele.replace("sc_name",sc_name);
+                 
+                 ele = ele.replace("assessment_id",login_id);
+                 
+
+                 if(status == true)
+                	 {
+                	 ele = ele.replace("image1", "Done");                	
+                	 }
+                 else
+                	 {
+                	 ele = ele.replace("image1", "Not Done");               
+                	 }
+                 
+                 collec += ele;
+                 
+            	
+            	}
+        	
+            $("#bodypage").html(collec);
+            
+
+            
+        }
+	
+	
+	
+});
+
+
+
+}
+
+
+</script> 
+
+<script type="text/javascript">
+
+function validate(element)
+{
+	
+	var datas = element.id;
+	
+	localStorage.setItem("datas",datas);
+	
+
+	
+	//alert(login_id);
+
+    window.location.href="descriptive.html";
+	
+}
+
+</script>
+
+
+<script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
+
+
+
+</body>
+</html>

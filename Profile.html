@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+ <title>profile </title>
+</head>
+  <style>
+
+ canvas {
+  border: 1px solid black;
+  width: 50%;
+  height: 30%;
+}
+ 
+
+  @import url("https://rsms.me/inter/inter.css");
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+  line-height: 1.4;
+  font-family: "Inter", sans-serif;
+  font-size: calc(.6rem + .4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  font-weight: 900;
+}
+
+mark {
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 0 0.2em;
+}
+
+.card {
+  background: var(--color-background);
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+}
+.card--inverted {
+  --color-background: var(--color-dark);
+  color: var(--color-light);
+  --color-shadow: var(--color-accent);
+}
+.card--accent {
+  --color-background: var(--color-signal);
+  --color-accent: var(--color-light);
+  color: var(--color-dark);
+}
+.card *:first-child {
+  margin-top: 0;
+}
+
+.l-design-widht {
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+.input {
+  position: relative;
+  width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+  position: relative;
+  width: 100%;
+}
+}
+
+.input__label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+  margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+  background: pink;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: var(--color-background);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.input__field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 1px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: black;
+  background: transparent;
+  font-size: 12px;
+  font-weight :600;
+  border-radius: var(--size-radius);
+}
+
+.input__field:not(:-moz-placeholder-shown) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: black;
+  font-size: 12px;
+  font-weight :600;
+}
+
+.input__field:not(:-ms-input-placeholder) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: black;
+  font-size: 12px;
+  font-weight :600;
+}
+
+.input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: black;
+  font-size: 12px;
+  font-weight :600;
+}
+
+.button-group {
+  margin-top: calc(var(--size-bezel) * 2.5);
+}
+
+button {
+  color: currentColor;
+  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+}
+
+button[type=reset] {
+  background: var(--color-background);
+  font-weight: 200;
+}
+
+button + button {
+  margin-left: calc(var(--size-bezel) * 2);
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+
+.hidden {
+  display: none;
+}
+
+.navbar {
+    height: 60px;
+}
+
+.navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+</style>
+
+ <body>
+  <nav class="navbar navbar-default" role="navigation" style="background-color:#ED1B26">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+     
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="68px;height:20px"></a></li>
+        <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Profile</a></li>
+        <li class="social pull-right" style="visibility: hidden;"><a href="#">Social Links</a></li>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </nav>
+   
+<div class="container">    
+
+ <!-- <div class="col-sm-6" style="background-color: #F0F0F0;border-radius : 0.9%;"> -->
+  
+    <div class="col-sm-3" style="margin-top: 2%;width: 180px;" >
+      <img  src="" class="img-responsive" id=abcd6 alt="Image" >
+      <p style="font-family: 'Source Sans Pro', sans-serif;font-size:20px;color:red;text-align: center;"><b>Left Profile</b></p>
+    </div>
+    <div class="col-sm-3" style="margin-top: 2%;width: 180px;"> 
+      <img  src="" class="img-responsive" id=abcd7 alt="Image" >
+      <p style="font-family: 'Source Sans Pro', sans-serif;font-size:20px;color:red;text-align: center;"><b>Front Profile</b></p>    
+    </div>
+    <div class="col-sm-3" style="margin-top: 2%;width: 180px;">
+       <img  src="" class="img-responsive" id=abcd8 alt="Image" >
+      <p style="font-family: 'Source Sans Pro', sans-serif;font-size:20px;color:red;text-align: center;"><b>Right Profile</b></p>
+    </div>
+    
+<div class="col-sm-3" style="float:right;">
+    
+    <canvas class="center-block" id="canvasOutput" style="margin-left: inherit;"></canvas>
+  	<div class="text-center" >
+    <input type="checkbox" id="face" name="classifier" value="face" checked style="display: none;">
+    <label for="face"></label>
+    <input type="checkbox" id="eye" name="cascade" value="eye" style="display: none;">
+    <label for="eye"></label>
+  	</div>
+  
+ 	<div class="invisible">
+ 	<video id="video" class="hidden" width="420" height="340" autoplay ></video>
+	</div>
+	
+</div>
+</div>
+	<br>
+
+<div class="container">
+<div class="col-sm-12" style="border-radius : 0.9%;">
+
+<!-- <ul class="list-group" style="list-style-type: none;margin-top: 4%;margin-left: 3%" >
+<li ><b>LAKSHYA ID </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" disabled="disabled" id=abcd  name="12345" style="background-color:  #F0F0F0;"><li>
+ </ul> -->
+ <ul class="list-group" style="list-style-type: none;" >
+	<li>
+ <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd  name="12345"  value="" />
+	<span class="input__label">LAKSHYA ID</span>
+  </label>
+  </li>
+  </ul>
+
+  <ul class="list-group" style="list-style-type: none;" >
+	<li>
+  <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd3  name="12345" value="" />
+	<span class="input__label">NAME</span>
+  </label>
+</li>
+</ul>
+
+<ul class="list-group" style="list-style-type: none;" >
+	<li>
+  <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd2  name="12345" value="" />
+	<span class="input__label">DEALER ID</span>
+  </label>
+</li>
+</ul>
+
+<ul class="list-group" style="list-style-type: none;" >
+	<li>
+  <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd1  name="12345" value="" />
+	<span class="input__label">DEALER NAME</span>
+  </label>
+</li>
+</ul>
+
+<ul class="list-group" style="list-style-type: none;" >
+	<li>
+  <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd4  name="12345" value="" />
+	<span class="input__label">CONTACT</span>
+  </label>
+</li>
+</ul>
+
+<ul class="list-group" style="list-style-type: none;" >
+	<li>
+  <label class="input">
+	<input class="input__field" type="text" placeholder=" " disabled="disabled" id=abcd5  name="12345" value="" />
+	<span class="input__label">EMAIL ID</span>
+  </label>
+</li>
+</ul>
+
+<ul class="list-group" style="list-style-type: none;" >
+  <li><a href="exam_select.html"><img src="img1/Group5.png" > </a></li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="container" >
+<div class="row">
+<div class="col-sm-6">
+ 	<video hidden id="video" width="420" height="340" autoplay ></video>
+	<img src="" id="con" hidden></div>
+	<div class="col-sm-6">
+	<h3 style="margin-top: 50px;font-family: calibri regular"><b style="display: none;">The Image will be captured in <span id="countdowntimer">10</span> Seconds</b></h3>
+</div>
+</div>
+</div>
+	
+<canvas hidden id="canvas" width="420" height="340"> </canvas>
+<div id="abcd" style="display: none;text-align: center;border-bottom: 1px solid black;margin-top: 50px;">
+
+<h1 style="color: red;font-family: calibri regular;">Your Profile Photo Did not Match</h1>
+<a href="https://tkmserviceelearning.com/"><button class="btn btn-danger" id="id" style="font-family: calibri regular"  >Exit</button></a>
+
+</div>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/16/Stats.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+<script>
+  var Module = {
+     wasmBinaryFile: 'https://huningxin.github.io/opencv.js/build/wasm/opencv_js.wasm',
+      preRun: [function() {
+      Module.FS_createPreloadedFile('/', 'haarcascade_eye.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_frontalface_default.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_profileface.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_profileface.xml', true, false);
+    }],
+    _main: function() {opencvIsReady();}
+  };
+</script>
+<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+
+
+<script type="text/javascript">
+    var ftvalue1 = 0;
+    var multifacevalue = 0;
+    var ftvalue2 = 0;
+    let videoWidth, videoHeight;
+
+//whether streaming video from the camera.
+let streaming = false;
+let video = document.getElementById('video');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('playsinline', '')
+
+let canvasOutput = document.getElementById('canvasOutput');
+let canvasOutputCtx = canvasOutput.getContext('2d');
+const img = document.querySelector('#screenshot img');
+const canvas = document.createElement('canvas');
+let stream = null;
+let detectFace = document.getElementById('face');
+let detectEye = document.getElementById('eye');
+
+function startCamera() {
+if (streaming) return;
+
+ navigator.mediaDevices.getUserMedia({video: true, audio: false, video: {
+    facingMode: 'user'}})
+ .then(function(s) {
+ stream = s;
+ video.srcObject = s;
+ video.play();
+})
+ .catch(function(err) {
+	 alert("Please Enable Camera and continue your assessment !...")
+	 window.location.href = "https://tkmserviceelearning.com/";
+ //console.log("An error occured! " + err);
+});
+
+video.addEventListener("canplay", function(ev){
+ if (!streaming) {
+   videoWidth = video.videoWidth;
+   videoHeight = video.videoHeight;
+   video.setAttribute("width", videoWidth);
+   video.setAttribute("height", videoHeight);
+   canvasOutput.width = videoWidth;
+   canvasOutput.height = videoHeight;
+   streaming = true;
+ }
+ startVideoProcessing();
+}, false);
+
+}
+
+video.addEventListener('onloadedmetadata', startCamera);
+
+let faceClassifier = null;
+let eyeClassifier = null;
+let src = null;
+let dstC1 = null;
+let dstC3 = null;
+let dstC4 = null;
+let canvasInput = null;
+let canvasInputCtx = null;
+let canvasBuffer = null;
+let canvasBufferCtx = null;
+
+function startVideoProcessing() 
+{
+if (!streaming) 
+{ 
+	console.log("Please startup your webcam"); 
+		return; 
+}
+
+stopVideoProcessing();
+canvasInput = document.createElement('canvas');
+canvasInput.width = videoWidth;
+canvasInput.height = videoHeight;
+canvasInputCtx = canvasInput.getContext('2d');
+canvasBuffer = document.createElement('canvas');
+canvasBuffer.width = videoWidth;
+canvasBuffer.height = videoHeight;
+canvasBufferCtx = canvasBuffer.getContext('2d');
+srcMat = new cv.Mat(videoHeight, videoWidth, cv.CV_8UC4);
+grayMat = new cv.Mat(videoHeight, videoWidth, cv.CV_8UC1);
+
+faceClassifier = new cv.CascadeClassifier();
+faceClassifier.load('haarcascade_frontalface_default.xml');
+eyeClassifier = new cv.CascadeClassifier();
+eyeClassifier.load('haarcascade_eye.xml');
+requestAnimationFrame(processVideo);
+}
+
+video.addEventListener('onprogress', startVideoProcessing); 
+
+function processVideo() 
+{
+	 /* if(ftvalue1>=250)
+	{
+		var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+		if(number_of_warnings1<=5)
+		{
+			alert("warning: Please Be in the Video Frame, face validation is taking place..!!");
+			snapshot();
+		}
+		else
+		{
+			 window.location.href="malpractice.html";
+		}
+		number_of_warnings1++;
+		localStorage.setItem("number_of_warnings1", number_of_warnings1);
+	   
+	}
+	 */
+	 
+	
+	 if(multifacevalue >= 80)
+	{
+		
+		var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+		if(number_of_warnings1 <= 5)
+		{
+			alert("warning: Multiple Face Detected , Make sure No Other Person is Involved ");
+			//snapshot();
+		}
+		else
+		{
+			window.location.href="malpractice.html";
+		}
+		number_of_warnings1++;
+		localStorage.setItem("number_of_warnings1", number_of_warnings1);	
+   }
+	   	
+stats.begin();
+canvasInputCtx.drawImage(video, 0, 0, videoWidth, videoHeight);
+let imageData = canvasInputCtx.getImageData(0, 0, videoWidth, videoHeight);
+srcMat.data.set(imageData.data);
+cv.cvtColor(srcMat, grayMat, cv.COLOR_RGBA2GRAY);
+let faces = [];
+let eyes = [];
+let size;
+if (detectFace.checked) {
+ let faceVect = new cv.RectVector();
+ let faceMat = new cv.Mat();
+ if (detectEye.checked) {
+   cv.pyrDown(grayMat, faceMat);
+   size = faceMat.size();
+ } else {
+   cv.pyrDown(grayMat, faceMat);
+   cv.pyrDown(faceMat, faceMat);
+   size = faceMat.size();
+ }
+ faceClassifier.detectMultiScale(faceMat, faceVect);
+ for (let i = 0; i < faceVect.size(); i++) {
+   let face = faceVect.get(i);
+   faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
+   if (detectEye.checked) {
+     let eyeVect = new cv.RectVector();
+     let eyeMat = faceMat.getRoiRect(face);
+     eyeClassifier.detectMultiScale(eyeMat, eyeVect);
+     for (let i = 0; i < eyeVect.size(); i++) {
+       let eye = eyeVect.get(i);
+       eyes.push(new cv.Rect(face.x + eye.x, face.y + eye.y, eye.width, eye.height));
+     }
+     eyeMat.delete();
+     eyeVect.delete();
+   }
+ }
+ faceMat.delete();
+ faceVect.delete();
+} else {
+ if (detectEye.checked) {
+   let eyeVect = new cv.RectVector();
+   let eyeMat = new cv.Mat();
+   cv.pyrDown(grayMat, eyeMat);
+   size = eyeMat.size();
+   eyeClassifier.detectMultiScale(eyeMat, eyeVect);
+   for (let i = 0; i < eyeVect.size(); i++) {
+     let eye = eyeVect.get(i);
+     eyes.push(new cv.Rect(eye.x, eye.y, eye.width, eye.height));
+   }
+   eyeMat.delete();
+   eyeVect.delete();
+ }
+}
+
+if(ftvalue1>=20)
+{
+	   //alert(faces.length);
+	   if(faces.length > 0)
+		   {
+		   //alert("Taking Snapshot");
+		 	  snapshot();
+
+		   }
+	   else
+		   {
+		   ftvalue2++;
+		   console.log(ftvalue2);
+		   }
+
+}
+
+if(ftvalue2 > 300)
+{
+	
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 <= 5)
+	{
+		alert("warning: Please Be in the Video Frame, face validation is taking place..!!")
+	}
+	else
+	{
+		window.location.href="TwoFaceError.html";
+	}
+	number_of_warnings1++;
+	localStorage.setItem("number_of_warnings1", number_of_warnings1);
+	ftvalue1 = 0;
+	ftvalue2 = 0;
+	
+}
+
+function snapshot() 
+{
+	canvasOutputCtx.fillRect(0,0,videoWidth,videoHeight);
+	canvasOutputCtx.drawImage(canvasInput, 0, 0, videoWidth, videoHeight);
+	var image = new Image();
+	image.src = canvasOutput.toDataURL('image/png',);
+	
+	  /*  function getCookie(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie !== '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = jQuery.trim(cookies[i]);
+	            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}
+
+	var csrftoken = getCookie('csrftoken');
+	
+	var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://toyota-lakshya-onlineassessment.in/fr_api/upload_recognition_image_encoded/', true);
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    var formData = new FormData();
+    formData.append('image_testing_file_encoded', image.src);
+    xhr.send(formData);
+
+    xhr.onload = function () 
+    {
+          if (xhr.status == 200) 
+          {
+        	  
+        	  var id = JSON.parse(xhr.responseText).id;
+        	  
+			   //alert("Snapshot took");
+        	  
+          } 
+          
+          else 
+        	  
+          {
+            alert('An error occurred!');
+          }
+    }; */
+      
+    face_recogn();
+ }
+
+canvasOutputCtx.drawImage(canvasInput, 0, 0, videoWidth, videoHeight);
+drawResults(canvasOutputCtx, faces, 'red', size);
+
+if(faces.length==0)
+{
+	ftvalue1++;
+    console.log("ftvalue1="+ftvalue1);
+}
+else
+{
+	ftvalue1=0;
+}
+
+if(faces.length > 1)
+{
+	multifacevalue++;
+	console.log(multifacevalue);
+}
+else
+{
+	multifacevalue=0;
+}
+drawResults(canvasOutputCtx, eyes, 'yellow', size);
+stats.end();
+requestAnimationFrame(processVideo);
+
+}
+
+var intervalId = setInterval(startVideoProcessing, 1000);
+
+function drawResults(ctx, results, color, size) 
+{
+	
+for (let i = 0; i < results.length; ++i) {
+ let rect = results[i];
+ let xRatio = videoWidth/size.width;
+ let yRatio = videoHeight/size.height;
+ ctx.lineWidth = 3;
+ ctx.strokeStyle = color;
+ ctx.strokeRect(rect.x*xRatio, rect.y*yRatio, rect.width*xRatio, rect.height*yRatio);
+}
+}
+
+function stopVideoProcessing() {
+if (src != null && !src.isDeleted()) src.delete();
+if (dstC1 != null && !dstC1.isDeleted()) dstC1.delete();
+if (dstC3 != null && !dstC3.isDeleted()) dstC3.delete();
+if (dstC4 != null && !dstC4.isDeleted()) dstC4.delete();
+}
+
+function stopCamera() {
+if (!streaming) return;
+stopVideoProcessing();
+document.getElementById("canvasOutput").getContext("2d").clearRect(0, 0, width, height);
+video.pause();
+video.srcObject=null;
+stream.getVideoTracks()[0].stop();
+streaming = false;
+}
+
+function initUI() {
+stats = new Stats();
+stats.showPanel(0);
+document.getElementById('container');
+}
+
+function opencvIsReady() {
+console.log('OpenCV.js is ready');
+initUI();
+startCamera();
+}
+
+async function face_recogn()
+{
+	//alert("hi");
+	var video = document.getElementById('video');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('playsinline', '');
+  
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+
+    // Not adding `{ audio: true }` since we only want video now
+ await   navigator.mediaDevices.getUserMedia({ video: true, video: {
+    facingMode: 'user'} }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+	context.drawImage(video, 0, 0, 420, 340);
+	context.drawImage(video, 0, 0, 420, 340);
+				
+	var my_image = convertCanvasToImage(canvas);
+    //document.body.appendChild(my_image);
+
+   function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://toyota-lakshya-onlineassessment.in/fr_api/upload_recognition_image_encoded/', true);
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    var formData = new FormData();
+    formData.append('image_testing_file_encoded', my_image.src);
+    xhr.send(formData);
+
+    xhr.onload = function () 
+    {
+          if (xhr.status == 200) 
+          {
+        	  var id = JSON.parse(xhr.responseText).id;
+        	  localStorage.setItem("imageid",id); 
+        	  cehckingface(); 	  
+        	  //window.location.href="Matching.html";
+          } 
+          
+          else  	  
+          {
+            alert('An error occurred!');
+          }
+    };   
+
+}
+
+function convertCanvasToImage(canvas) 
+{
+	var image = new Image();
+	image.src = canvas.toDataURL("image/png");
+	return image;
+	response = get_response(request) 
+}
+
+function cehckingface()
+{
+	
+	imageid=localStorage.getItem("imageid");
+	lakshya_id=localStorage.getItem("lakshya_id");
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 == 1)
+		{
+	var action = "warning_wrong_doing1";
+		}
+	else if(number_of_warnings1 == 2)
+	{
+	var action = "warning_wrong_doing2";
+	}
+	else if(number_of_warnings1 == 3)
+	{
+	var action = "warning_wrong_doing3";
+	}
+	else if(number_of_warnings1 == 4)
+	{
+	var action = "warning_wrong_doing4";
+	}
+	else if(number_of_warnings1 == 5)
+	{
+	var action = "warning_wrong_doing5";
+	}
+	else
+		{
+		var action = "warning_5_completed";
+		}
+	
+	var attempts = localStorage.getItem('attempts');
+	
+	$.ajax({   
+      
+        url:"https://toyota-lakshya-onlineassessment.in/fr_api/predict_image_v2/?image_id="+imageid+"&login_id="+lakshya_id+"&action="+action+"&attempts="+attempts+"",
+       	type:"get",
+       	data: "json",
+        success: function(data)
+      {    
+        	var obj = data.label;
+        	//alert("face checked");
+
+        	if(obj == lakshya_id)
+      {
+        		//alert("ID is Matching");
+        		ftvalue1 = 0;
+        		ftvalue2 = 0;
+      }
+       else
+      {	
+    	   alert("Warning : Face The Camera Properly Otherwise Your Exam Will Be closed Because Your Id is Not matching !..");		
+    	   snapfucn();
+        //window.location.href="malpractice.html";
+        		
+      }
+            
+      }
+
+});
+	
+}
+</script>
+
+
+<script>
+
+function snapfucn() 
+{
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 <= 5)
+	{
+		alert("Warning : Your Face Id is Not matching Be in a video Frame !..");
+		//snapshot();
+	}
+	else
+	{
+		window.location.href="malpractice.html";
+	}
+
+	number_of_warnings1++;
+	localStorage.setItem("number_of_warnings1", number_of_warnings1);
+    //setTimeout(snapshot, 5000);
+}
+
+</script>
+
+
+<script>
+function snapfucn() 
+{
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 <= 5)
+	{
+		alert("warning: Your Id is not Matched hence face validation is Taking Place ");
+		//snapshot();
+		
+	}
+	else
+	{
+		window.location.href="malpractice.html";
+	}
+	number_of_warnings1++;
+	localStorage.setItem("number_of_warnings1", number_of_warnings1);
+	 setTimeout(snapshot, 5000);
+
+}
+</script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() 
+{
+	//alert(left_profile_image);
+	
+	var url ="https://toyota-lakshya-onlineassessment.in"
+	
+	var lakshya_id=localStorage.getItem("lakshya_id");
+	var dealer_name=localStorage.getItem("dealer_name");
+	var dealer_id=localStorage.getItem("dealer_id");
+	var sc_name=localStorage.getItem("sc_name");
+	var sc_contact=localStorage.getItem("sc_contact");
+	var sc_email=localStorage.getItem("sc_email");
+	var left_profile_image=localStorage.getItem("left_profile_image");
+	var front_profile_image=localStorage.getItem("front_profile_image");
+	var right_profile_image=localStorage.getItem("right_profile_image");	
+	
+	document.getElementById("abcd").value= lakshya_id;
+	document.getElementById("abcd1").value= dealer_name;
+	document.getElementById("abcd2").value= dealer_id;
+	document.getElementById("abcd3").value= sc_name;
+	document.getElementById("abcd4").value= sc_contact;
+	document.getElementById("abcd5").value= sc_email;
+	document.getElementById("abcd6").src= url+""+left_profile_image;
+	document.getElementById("abcd7").src= url+""+front_profile_image;
+	document.getElementById("abcd8").src= url+""+right_profile_image;
+	
+	var sc_contact1 = localStorage.setItem("text","sc_contact");
+	
+});
+
+</script>
+
+
+<script type="text/javascript">
+
+var url=localStorage.getItem("access");
+
+if(url == 0)
+	{
+	      window.location.href="#";
+	}
+else 
+{
+	window.location.href="https://tkmserviceelearning.com/";
+ 	
+}
+
+
+</script>
+  
+  <script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script> 
+  
+  		
+</body>
+</html>

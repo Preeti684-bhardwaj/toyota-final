@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="jar/jquery-1.11.1.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+ 
+<title>Demo</title>
+
+<style type="text/css">
+  
+ ul { display:table; margin:0 auto;}
+
+</style>
+</head>
+<body>
+
+<!-- <nav class="navbar navbar" >
+<div class="container">
+
+</div>
+
+</nav>
+ -->
+
+<br>
+<br>
+<div class="container">
+
+<div class="col-sm-12" style="text-align: center;">
+
+<h2 style="font-family: 'Source Sans Pro', sans-serif;color:#444444"><b>Face Detection & Recognition</b></h2>
+
+</div>
+</div>
+
+<br>
+
+
+<div class="container">
+
+<div class="col-sm-12" style="text-align: center;">
+
+<img alt="" src="img1/face_icon.png">
+
+</div>
+</div>
+
+<br>
+
+<div class="container">
+
+<div class="col-sm-12">
+
+<ul style="list-style-type:disc;">
+  <li><p style="font-family: 'Source Sans Pro', sans-serif;color:#444444;font-size: 24px;font-style: normal;font-weight: normal;">No other person is allowed to be part of the screen while you take the exam</p></li>
+  <li><p style="font-family: 'Source Sans Pro', sans-serif;color:#444444;font-size: 24px;margin-top: 20px;">The lighting in the room must be bright enough to be considered daylight quality. Overhead lighting is preferred. If overhead lighting is not available, the source of light must not be behind you.</b></p></li>
+</ul>  
+</div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+
+<div class="col-sm-12" style="text-align: center;">
+
+<a href="facedetection.html">  <button type="button" class="btn btn-info">Proceed</button> </a>
+</div>
+</div>
+
+<br>
+<br>
+
+<script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var url=localStorage.getItem("access");
+
+
+if(url == 0)
+	{
+	
+	window.location.href="#";
+	}
+else 
+{
+	
+ 	window.location.href="https://tkmserviceelearning.com/";
+ 	
+}
+
+
+</script>
+
+</body>
+</html>

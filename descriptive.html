@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/css/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="jar/jquery-1.11.1.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>descriptive evaluation</title>
+
+
+<style>
+
+#abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;
+  
+ 
+ } 
+ 
+ .navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+
+button
+{
+
+font-family: calibri;
+height:30px;
+text-align: center;
+
+}
+
+#size{
+width: 50px;
+height: 25px;
+border-color: red;
+border-radius: 5px;
+
+
+}
+
+
+
+#mybox{
+   text-align:center;
+   background-color: #f9f9f9;
+   width: 100%;
+   height: 40%;
+   box-shadow: 1px 1px 5px grey;
+    border-radius: 5px;
+  
+  }
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot1 {
+  height: 10px;
+  width: 10px;
+  background-color: green;
+  border-radius: 30%;
+  display: inline-block;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body style="background-color: #E6E6E6">
+
+
+<nav class="navbar navbar-default" id=abc style="background-color: #ED1B26">
+<div class="container">
+ <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+    <a class="navbar-brand" href="#" style="color: white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Descriptive Evaluation</a>
+  </div>
+
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left" >
+        <li ><a href="#"></a></li>
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+
+<li><a href="chart.html" style="color: white;font-family:Calibri regular;"><img src="img/back.png" style="width: 32px;height: 26px;"><p style="padding-left: 4px"><span></span></p></a></li>
+ <li><a href="InvgLogin.html" style="color: white;font-family:Calibri regular;"><img src="img/logout.png"  style="width: 31px;height: 26px;"><p style="padding-left: 1px" ><span id="progress"></span></p></a></li>
+
+
+</ul>
+  </div>
+  
+   
+
+</div>
+
+</nav>
+<br>
+      
+  <div class="container" >
+  <div class="row" >
+  <div class="col-sm- 2" >
+  </div>
+   <div class="col-sm- 10" id="bodypage">
+  </div>
+  </div>
+  </div>
+
+ <script type="text/javascript">
+ history.pushState(null, null, document.URL);
+ window.addEventListener('popstate', function () {
+     history.pushState(null, null, document.URL);
+ });
+ </script>  
+
+<script type="text/javascript">
+
+var page1="<div class=\"col-sm-12\"  style=\"border-bottom: 1px solid grey;\"><div class=\"col-sm-4\" style=\"float:right;margin-top:2%;\">"+
+			
+"<button style=\"margin-left:10px;float:right;border-radius:15%;\"\" type=\"button\" class=\"btn btn-success\" onclick=\"submitmarks(this)\" id=\"validate_marks\" value=\"question_id\" >SUBMIT</button>"+	
+"<b id=\"alloted\" style=\"float:right;font-size:20px;margin-left:2%\" value=\"question_idd\">/marks_allotted</b>"+	
+"<input type=\"text\" class=\"\" name=\"pname[]\"  id=\"Question_idd\" value=\"marks_obtained\" style=\"float:right;width:10%;height:30px;\">"+
+			"</div>"+
+ 
+			"<br><div class=\"col-sm-8\" ><span class=\"dot\"></span><b style=\"color:red;margin-left:1%\" > Questions</b><br><br>"+
+   		    "<b style=\"text-align: justify;\" >Answer</b><br><br></div></div>";
+   		    
+			
+
+
+
+		 
+		 
+	var invigilator_id1 =localStorage.getItem("invigilator_id"); 
+		
+	var assessment_name1 = localStorage.getItem("assessment_name1");
+	var assessment_name2 = localStorage.getItem("assessment_name2");
+	var assessment_name3 = localStorage.getItem("assessment_name3");
+
+	
+	var login_id = localStorage.getItem("datas");
+	//alert(login_id);
+
+	var id1=localStorage.getItem("id");
+			
+		
+		
+ 	//alert(id1);
+		
+var collection =""; 
+
+ //var collection1 =""; 
+
+$(document).ready(function() 
+		{
+		$.ajax({   
+        
+        url:"https://toyota-lakshya-onlineassessment.in/api/get_invigilator_sc_question/?invigilator_id="+invigilator_id1+"&assessment_id="+id1+"&login_id="+login_id+"",
+       	type:"get",
+       	data: "json",               
+        success: function(data)
+        {    
+        	
+        	
+        	//alert("success");
+        	
+        	//var obj = data.objects;
+        	
+        	for ( var i = 0; i < data.length; i++)
+        	{
+        		
+        		
+                 	var ele = "";
+				
+                  	//var ele1 ="";
+                 	
+                    ele = page1;
+                    
+                    //ele1 = page2;
+                 	
+        		
+        			var question = data[i].question;
+        			var question_type = data[i].question_type;
+        			var marks_allotted = data[i].marks_allotted;
+        			var answer = data[i].answer;
+        			var marks_obtained = data[i].marks_obtained;
+        			//alert(marks_obtained);
+        			var question_id = data[i].question_id;
+        			
+        			var question_id1 = data[i].question_id;
+        			
+        			var question_id2 = data[i].question_id;
+        			//alert(marks_allotted);
+        			
+        			//localStorage.setItem("marks_alloted",marks_allotted)
+        			
+        			localStorage.setItem("question_id",question_id);
+        			
+        			ele = ele.replace("Questions", question);
+        			
+        			ele = ele.replace("Answer", answer);
+        			
+        			ele = ele.replace("marks_allotted", marks_allotted);
+					ele = ele.replace("validate_marks", marks_allotted);
+
+        			if(marks_obtained == null)
+        			{
+        				ele = ele.replace("marks_obtained", " ");
+        			}
+        			else
+        			{
+        				ele = ele.replace("marks_obtained", marks_obtained);
+						
+
+        			}
+        			
+        			ele = ele.replace("question_id", question_id);
+        			
+        			ele = ele.replace("Question_idd", question_id1);
+        			
+        			ele = ele.replace("question_idd", question_id2);
+        			
+        				
+        			collection += ele;
+        		
+        		}
+    		
+        	
+            $("#bodypage").html(collection);
+            
+            
+
+        }
+        
+        
+        
+		});
+		
+		});
+		
+
+
+function submitmarks(elem)
+{
+ 
+	var x = elem.value;
+
+	
+	var mark = document.getElementsByName('pname[]');
+	
+	var marks = document.getElementById(elem.value).value;
+
+	var marks1 = marks.split(' ').join('');
+
+ 
+	if(marks1 < elem.id || marks1 == elem.id)
+	{
+		var marks_obtained1 = marks1;
+	}
+	else
+	{
+		alert("Invalid Marks!..");
+	}
+			
+	
+
+			
+	
+	
+$.ajax({
+		
+	
+		url : "https://toyota-lakshya-onlineassessment.in/api/submit_marks/?invigilator_id="+invigilator_id1+"&assessment_id="+id1+"&login_id="+login_id+"&question_id="+x+"&marks_obtained="+marks_obtained1+"",
+		type : "get",
+		data: "json",
+		success : function(data)
+		{
+			
+			var status = data.status;
+			             
+			if(status=='success')
+			{
+				
+				
+				alert("submitted");
+				window.location.reload();
+			}
+			
+			else
+			
+			{
+		        alert("Failed..");
+			}
+			
+		}	
+});
+
+	
+	
+}
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title>Instructions </title>
+</head>
+
+<style>
+
+canvas {
+  border: 1px solid black;
+  width: 40%;
+  height: 20%;
+}
+ 
+* {
+  box-sizing: border-box;
+}
+
+  #abc
+ {
+    background-image:url('img/toyota_logo.png') ;
+	background-repeat:no-repeat;
+	height: 57px;  
+ 
+ } 
+
+#ex1 {
+			background-color: #F0F0F0;
+		    width: 40%;
+		    height: 330px;
+		    overflow: scroll;
+}
+
+#ex2 {
+			background-color: #F0F0F0;
+			width: 40%;
+			height: 330px;
+			overflow: scroll;
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+#overlay{
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.01);
+}
+
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.is-hide{
+	display:none;
+}
+
+.navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar {
+    height: 60px;
+}
+ 
+</style>
+
+		
+
+	
+<body>
+<nav class="navbar navbar-default" role="navigation" style="background-color:#ED1B26">
+		<div class="container">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		 
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="68px;height:20px"></a></li>
+			<li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Instructions</a></li>
+			<li class="social pull-right" style="visibility: hidden;"><a href="#">Social Links</a></li>
+		  </ul>
+		  </div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+		</nav>
+
+<div class="container-fluid" >
+<div class="row" >
+<div class="col-sm-9">
+
+</div>
+
+<div class="col-sm-3" style="float: left">
+<br>
+
+  <div id="container">
+    <canvas class="center-block" id="canvasOutput" ></canvas>
+  </div>
+  <div class="text-center">
+    <input type="checkbox" id="face" name="classifier" value="face" checked style="display: none;">
+    <label for="face"></label>
+    <input type="checkbox" id="eye" name="cascade" value="eye" style="display: none;">
+    <label for="eye"></label>
+  </div>
+  
+<div class="invisible">
+<video id="video" class="hidden" width="420" height="340" autoplay ></video>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container-fluid" >
+<div class="row">
+
+<div class="col-sm-1">
+
+	</div>
+
+	<div class="col-sm-5" id="bodypage" style="margin-left: 2%" >
+	<div class="well" style="width:95%" id="ex2">
+    <p style="color:#444444;border-bottom: 2px solid red;font-size: 15px;text-align: center;font-weight: bolder;">Instructions For FR Assessment</p>
+    <br>
+    
+      <ul>
+      <li>The assessment is based on face recognition</li>
+      
+       <li>  Candidate needs to be sitting in front of the camera throughout the assessment, 
+       if the candidate moves out from the camera screen, it will be considered as malpractice/wrongdoing 
+        and test will be automatically
+
+        closed. </li>
+        
+        <li>Kindly ensure minimum internet speed of 250 kbps throughout the assessment with sufficient ambient lightings</li>
+        
+       <li>Assessment Can be accessed only in Desktop/ Laptop with web camera enabled</li>
+       
+       <li> Link for the assessment to be opened only in Google Chrome   </li> 
+       
+   <li>  Ensure no other windows or application remain open in the Laptop/Desktop during the assessment. 
+   Close all such opened App or window prior to the commencement of the Test.</li>
+        
+       <li> Photos of the participants [LEFT, RIGHT & CENTRE] must be uploaded in the system</li> 
+        
+       <li>During the Assessment, ensure there is no movement of Human in the background of the Participants, 
+       any such will be recognized by the system and test will be automatically cancelled</li>
+       
+       
+       <li>Since it is an Online Proctored Assessment, Participants can take the test at any location that meets the above Criteria</li>
+       
+       <li>  There will be a maximum of 3 malpractice attempts [ 1 Attempt with 5 warnings ] for the assessment. Switching window or opening new browser instance, talking over phone, taking others help while taking assessment, speaking to others while taking assessment are all considered as malpractice </li>
+       
+	<li> It is recommended to take keep the face fully covered and straight to camera while taking assessment. Dont allow any one else to come in the camera frame. </li>
+       
+   <li> In case the test gets closed, it will be resumed in the next attempt [Candidate need not have to re-attempt the assessment]</li>
+       
+       <li>The system will populate different kinds of warning such as Multi-faced detected, no face detected, user switched to new tab/window</li>
+      
+      <li>During the assessment, a candidate can take three breaks cumulating a total of 5 minutes</li>
+      <li>Once the candidate, comes back from the break , he/she can again resume the assessment from the last attempted question </li>
+      <li>Once any question is attempted and participant moved to next questions, he cannnot re attend the previous questions</li>
+   
+  </ul>
+
+</div>
+</div>
+     
+
+<div class="col-sm-5" id="bodypage" style="margin-left: 2%" >
+<div class="well" style="width:95%" id="ex2">
+<p style="color:#444444;border-bottom: 2px solid red;font-size: 15px;text-align: center;font-weight: bolder;text-align: center;" id="test_id">Instructions For</p><br>
+
+<ul>
+
+<li><b>Course Name : </b><span id="fgh"></span></li><br>
+<li><b>Total No. Of Questions : </b><span id="fgh1"></span></li><br>
+<li><b>Total Marks : </b><span id="fgh2"></span></li><br>
+<li><b>Total duration : </b><span id="fgh3"></span></li><br>
+
+
+<li><span id="asd"></span></li><br>
+<li><span id="asd1"></span></li><br>
+<li><span id="asd2"></span></li><br>
+<li><span id="asd3"></span></li><br>
+<li><span id="asd4"></span></li><br>
+<li><span id="asd5"></span></li><br>
+
+
+<!-- <li><b>Total no.of questions : </b><p id="qwe"></p></li>
+<li><b>Total marks : </b><p id="zxc"></p></li> -->
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+<div>
+	</div>
+	
+<div style="margin-top: 5%;text-align: center;">
+       
+<!-- <a href="video/Face recognition  (compressed)-converted.pdf">DEMO</a>. -->   
+
+ <iframe id="myFrame" src="video/Face recognition.pdf" width="100%" height="500px" style="display:none"></iframe>
+      
+  <button type=button id="demo" class="btn btn-info" onclick="startdemo()">DEMO</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" class="btn btn-success" onclick="sendtoquestionspage()">START</button>
+
+<br>
+<br>     
+</div>
+	
+<div class="container" >
+<div class="row">
+<div class="col-sm-6">
+ 	<video hidden id="video" width="420" height="340" autoplay></video>
+	<img src="" id="con" hidden></div>
+	<div class="col-sm-6">
+	<h3 style="margin-top: 50px;font-family: calibri regular"><b style="display: none;">The Image will be captured in <span id="countdowntimer">10</span> Seconds</b></h3>
+</div>
+</div>
+</div>
+	
+<canvas  hidden id="canvas" width="420" height="340"> </canvas>
+	
+<div id="abcd" style="display: none;text-align: center;border-bottom: 1px solid black;margin-top: 50px;">
+
+<h1 style="color: red;font-family: calibri regular;">Your Profile Photo Did not Match</h1>
+<a href="https://tkmserviceelearning.com/"><button class="btn btn-danger" id="id" style="font-family: calibri regular"  >Exit</button></a>
+</div>
+	
+<div id="overlay">
+	<div class="cv-spinner">
+		<span class="spinner"></span>
+	</div>
+  </div>	
+</body>
+
+
+<script type="text/javascript">
+
+	function sendtoquestionspage() {
+
+			if (/iPhone|iPod/.test(navigator.userAgent)) {
+				window.location.href = "questionsDemo.html";
+			}
+			else if ( window.innerWidth < 600 ) {
+				window.location.href = "questionsDemo.html";
+			}
+			else{
+				window.location.href = "Questions.html";
+			}
+					
+       }
+
+</script>
+
+<script type="text/javascript">
+ 
+$(document).ready(function() {  
+
+		   lakshya_id=localStorage.getItem("lakshya_id");
+		   assessment_id = localStorage.getItem("assessment_id");
+     
+	   $.ajax({
+		   
+		   url : "https://toyota-lakshya-onlineassessment.in/api/log_attempt/?lakshya_id="+lakshya_id+"&assessment_id="+assessment_id+"&login_id="+lakshya_id+"",
+		   type : "get",
+		   data: "json",
+		   success : function(data)
+		   {
+			   
+			   var status = data.status;
+			   
+			   if(status == "success")
+				   {
+					    console.log("Attempts");
+				   }
+			   
+		   }	
+   });
+   
+	   console.log(status); 
+	   return false;
+	   
+   });
+
+</script>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/16/Stats.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+<script>
+  var Module = {
+     wasmBinaryFile: 'https://huningxin.github.io/opencv.js/build/wasm/opencv_js.wasm',
+    preRun: [function() {
+      Module.FS_createPreloadedFile('/', 'haarcascade_eye.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_frontalface_default.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_profileface.xml', 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_profileface.xml', true, false);
+    }],
+    _main: function() {opencvIsReady();}
+  };
+</script>
+<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+
+<script type="text/javascript">
+
+var ftvalue1 = 0;
+var multifacevalue = 0;
+var ftvalue2 = 0;
+let videoWidth, videoHeight;
+
+//whether streaming video from the camera.
+let streaming = false;
+
+let video = document.getElementById('video');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('playsinline', '');
+let canvasOutput = document.getElementById('canvasOutput');
+let canvasOutputCtx = canvasOutput.getContext('2d');
+const img = document.querySelector('#screenshot img');
+const canvas = document.createElement('canvas');
+let stream = null;
+
+let detectFace = document.getElementById('face');
+let detectEye = document.getElementById('eye');
+
+function startCamera() {
+if (streaming) return;
+navigator.mediaDevices.getUserMedia({video: true, audio: false,video:{facingMode: 'user'}})
+ .then(function(s) {
+ stream = s;
+ video.srcObject = s;
+ video.play();
+})
+ .catch(function(err) {
+	 alert("Please Enable Camera and continue your assessment !...")
+	 window.location.href = "https://tkmserviceelearning.com/";
+ //console.log("An error occured! " + err);
+});
+
+video.addEventListener("canplay", function(ev){
+ if (!streaming) {
+   videoWidth = video.videoWidth;
+   videoHeight = video.videoHeight;
+   video.setAttribute("width", videoWidth);
+   video.setAttribute("height", videoHeight);
+   canvasOutput.width = videoWidth;
+   canvasOutput.height = videoHeight;
+   streaming = true;
+ }
+ startVideoProcessing();
+}, false);
+}
+
+video.addEventListener('onloadedmetadata', startCamera);
+
+let faceClassifier = null;
+let eyeClassifier = null;
+
+let src = null;
+let dstC1 = null;
+let dstC3 = null;
+let dstC4 = null;
+
+let canvasInput = null;
+let canvasInputCtx = null;
+
+let canvasBuffer = null;
+let canvasBufferCtx = null;
+
+function startVideoProcessing() 
+{
+	
+if (!streaming) 
+{ 
+	console.log("Please startup your webcam"); 
+		return; 
+}
+stopVideoProcessing();
+canvasInput = document.createElement('canvas');
+canvasInput.width = videoWidth;
+canvasInput.height = videoHeight;
+canvasInputCtx = canvasInput.getContext('2d');
+
+canvasBuffer = document.createElement('canvas');
+canvasBuffer.width = videoWidth;
+canvasBuffer.height = videoHeight;
+canvasBufferCtx = canvasBuffer.getContext('2d');
+
+srcMat = new cv.Mat(videoHeight, videoWidth, cv.CV_8UC4);
+grayMat = new cv.Mat(videoHeight, videoWidth, cv.CV_8UC1);
+
+faceClassifier = new cv.CascadeClassifier();
+faceClassifier.load('haarcascade_frontalface_default.xml');
+
+eyeClassifier = new cv.CascadeClassifier();
+eyeClassifier.load('haarcascade_eye.xml');
+requestAnimationFrame(processVideo);
+}
+
+video.addEventListener('onprogress', startVideoProcessing); 
+
+function processVideo() 
+{
+	
+	 /* if(ftvalue1>=250)
+	{
+		var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+		if(number_of_warnings1<=5)
+		{
+			alert("warning: Please Be in the Video Frame, face validation is taking place..!!");
+			snapshot();
+		}
+		else
+		{
+			 window.location.href="malpractice.html";
+		}
+		number_of_warnings1++;
+		localStorage.setItem("number_of_warnings1", number_of_warnings1);
+	   
+	}
+	 */
+	 
+	 if(multifacevalue >= 150)
+	{
+		
+		var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+		if(number_of_warnings1 <= 5)
+		{
+			alert("warning: Multiple Face Detected , Make sure No Other Person is Involved ");
+			//snapshot();
+		}
+		else
+		{
+			window.location.href="malpractice.html";
+		}
+		number_of_warnings1++;
+		localStorage.setItem("number_of_warnings1", number_of_warnings1);	
+   }
+		
+stats.begin();
+canvasInputCtx.drawImage(video, 0, 0, videoWidth, videoHeight);
+let imageData = canvasInputCtx.getImageData(0, 0, videoWidth, videoHeight);
+srcMat.data.set(imageData.data);
+cv.cvtColor(srcMat, grayMat, cv.COLOR_RGBA2GRAY);
+let faces = [];
+let eyes = [];
+let size;
+if (detectFace.checked) {
+ let faceVect = new cv.RectVector();
+ let faceMat = new cv.Mat();
+ if (detectEye.checked) {
+   cv.pyrDown(grayMat, faceMat);
+   size = faceMat.size();
+ } else {
+   cv.pyrDown(grayMat, faceMat);
+   cv.pyrDown(faceMat, faceMat);
+   size = faceMat.size();
+ }
+ faceClassifier.detectMultiScale(faceMat, faceVect);
+ for (let i = 0; i < faceVect.size(); i++) {
+   let face = faceVect.get(i);
+   faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
+   if (detectEye.checked) {
+     let eyeVect = new cv.RectVector();
+     let eyeMat = faceMat.getRoiRect(face);
+     eyeClassifier.detectMultiScale(eyeMat, eyeVect);
+     for (let i = 0; i < eyeVect.size(); i++) {
+       let eye = eyeVect.get(i);
+       eyes.push(new cv.Rect(face.x + eye.x, face.y + eye.y, eye.width, eye.height));
+     }
+     eyeMat.delete();
+     eyeVect.delete();
+   }
+ }
+ faceMat.delete();
+ faceVect.delete();
+} else {
+ if (detectEye.checked) {
+   let eyeVect = new cv.RectVector();
+   let eyeMat = new cv.Mat();
+   cv.pyrDown(grayMat, eyeMat);
+   size = eyeMat.size();
+   eyeClassifier.detectMultiScale(eyeMat, eyeVect);
+   for (let i = 0; i < eyeVect.size(); i++) {
+     let eye = eyeVect.get(i);
+     eyes.push(new cv.Rect(eye.x, eye.y, eye.width, eye.height));
+   }
+   eyeMat.delete();
+   eyeVect.delete();
+ }
+}
+
+if(ftvalue1>=20)
+{
+	   //alert(faces.length);
+	   if(faces.length > 0)
+		   {
+		   //alert("Taking Snapshot");
+		 	  snapshot();
+
+		   }
+	   else
+		   {
+		   ftvalue2++;
+		   console.log(ftvalue2);
+		   }
+
+}
+
+if(ftvalue2 > 300)
+{
+	
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 <= 5)
+	{
+		alert("warning: Please Be in the Video Frame, face validation is taking place..!!")
+	}
+	else
+	{
+		window.location.href="TwoFaceError.html";
+	}
+	number_of_warnings1++;
+	localStorage.setItem("number_of_warnings1", number_of_warnings1);
+	
+	ftvalue1 = 0;
+	ftvalue2 = 0;
+	
+}
+
+
+function snapshot() 
+{
+	canvasOutputCtx.fillRect(0,0,videoWidth,videoHeight);
+	canvasOutputCtx.drawImage(canvasInput, 0, 0, videoWidth, videoHeight);
+	var image = new Image();
+	image.src = canvasOutput.toDataURL('image/png',);
+	
+
+	  /*  function getCookie(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie !== '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = jQuery.trim(cookies[i]);
+	            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}
+
+	var csrftoken = getCookie('csrftoken');
+	
+	var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://toyota-lakshya-onlineassessment.in/fr_api/upload_recognition_image_encoded/', true);
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    var formData = new FormData();
+    formData.append('image_testing_file_encoded', image.src);
+    xhr.send(formData);
+
+    xhr.onload = function () 
+    {
+          if (xhr.status == 200) 
+          {
+        	  
+        	  var id = JSON.parse(xhr.responseText).id;
+        	  
+			   //alert("Snapshot took");
+        	  
+          } 
+          
+          else 
+        	  
+          {
+            alert('An error occurred!');
+          }
+    }; */
+      
+    face_recogn();
+}
+
+canvasOutputCtx.drawImage(canvasInput, 0, 0, videoWidth, videoHeight);
+drawResults(canvasOutputCtx, faces, 'red', size);
+
+if(faces.length==0)
+{
+	ftvalue1++;
+    console.log("ftvalue1="+ftvalue1);
+}
+else
+{
+	ftvalue1=0;
+}
+
+if(faces.length > 1)
+{
+    multifacevalue++;
+	console.log(multifacevalue);
+	
+}
+else
+{
+	multifacevalue=0;
+}
+
+drawResults(canvasOutputCtx, eyes, 'yellow', size);
+stats.end();
+requestAnimationFrame(processVideo);
+
+}
+
+var intervalId = setInterval(startVideoProcessing, 1000);
+
+function drawResults(ctx, results, color, size) 
+{
+	
+for (let i = 0; i < results.length; ++i) {
+ let rect = results[i];
+ let xRatio = videoWidth/size.width;
+ let yRatio = videoHeight/size.height;
+ ctx.lineWidth = 3;
+ ctx.strokeStyle = color;
+ ctx.strokeRect(rect.x*xRatio, rect.y*yRatio, rect.width*xRatio, rect.height*yRatio);
+}
+}
+
+function stopVideoProcessing() {
+if (src != null && !src.isDeleted()) src.delete();
+if (dstC1 != null && !dstC1.isDeleted()) dstC1.delete();
+if (dstC3 != null && !dstC3.isDeleted()) dstC3.delete();
+if (dstC4 != null && !dstC4.isDeleted()) dstC4.delete();
+}
+
+function stopCamera() {
+if (!streaming) return;
+stopVideoProcessing();
+document.getElementById("canvasOutput").getContext("2d").clearRect(0, 0, width, height);
+video.pause();
+video.srcObject=null;
+stream.getVideoTracks()[0].stop();
+streaming = false;
+}
+
+function initUI() {
+stats = new Stats();
+stats.showPanel(0);
+document.getElementById('container');
+}
+
+function opencvIsReady() {
+console.log('OpenCV.js is ready');
+initUI();
+startCamera();
+}
+
+ function face_recogn()
+{
+	//alert("hi");
+	var video = document.getElementById('video');
+		video.setAttribute('autoplay', '');
+		video.setAttribute('playsinline', '');
+
+// Get access to the camera!
+   if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+	 navigator.mediaDevices.getUserMedia({ video: true , video:{facingMode: 'user'}}).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+
+}
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+context.drawImage(video, 0, 0, 420, 340);	
+context.drawImage(video, 0, 0, 420, 340);
+			
+	var my_image = convertCanvasToImage(canvas);
+    //document.body.appendChild(my_image);
+
+   function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://toyota-lakshya-onlineassessment.in/fr_api/upload_recognition_image_encoded/', true);
+    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    var formData = new FormData();
+    formData.append('image_testing_file_encoded', my_image.src);
+    xhr.send(formData);
+
+    xhr.onload = function () 
+    {
+          if (xhr.status == 200) 
+          {
+        	  var id = JSON.parse(xhr.responseText).id;
+        	  localStorage.setItem("imageid",id);
+        	  cehckingface();
+        	  
+        	  //window.location.href="Matching.html";
+          }  	  
+     else 	  
+          {
+            alert('An error occurred!');
+          }
+    };  
+     
+}
+
+
+function convertCanvasToImage(canvas) 
+{
+	var image = new Image();
+	image.src = canvas.toDataURL("image/png");
+	return image;
+	response = get_response(request) 	
+}
+
+
+function cehckingface()
+{
+	imageid=localStorage.getItem("imageid");
+	lakshya_id=localStorage.getItem("lakshya_id");
+    assessment_id = localStorage.getItem("assessment_id");
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+
+	if(number_of_warnings1 == 1)
+		{
+	var action = "warning_wrong_doing1";
+		}
+	else if(number_of_warnings1 == 2)
+	{
+	var action = "warning_wrong_doing2";
+	}
+	else if(number_of_warnings1 == 3)
+	{
+	var action = "warning_wrong_doing3";
+	}
+	else if(number_of_warnings1 == 4)
+	{
+	var action = "warning_wrong_doing4";
+	}
+	else if(number_of_warnings1 == 5)
+	{
+	var action = "warning_wrong_doing5";
+	}
+	else
+		{
+		      var action = "warning_5_completed";
+		}
+	
+	var attempts = localStorage.getItem('attempts');
+	
+	$.ajax({   	
+        url:"https://toyota-lakshya-onlineassessment.in/fr_api/predict_image_v2/?image_id="+imageid+"&login_id="+lakshya_id+"&assessment_id="+assessment_id+"&action="+action+"&attempts="+attempts+"",
+       	type:"get",
+       	data: "json",
+        success: function(data)
+      {    	
+        	var obj = data.label;	
+        	//alert("face checked");
+
+        	if(obj == lakshya_id)
+      {
+        		//alert("ID is Matching");
+        		ftvalue1 = 0;
+        		ftvalue2 = 0;
+      }
+       else
+      {
+    	   alert("Warning : Face The Camera Properly Otherwise Your Exam Will Be closed Because Your Id is Not matching !.."); 		
+    	   snapfucn();
+   		
+           //window.location.href="malpractice.html";
+        		
+      }
+    }
+
+});
+		
+}
+
+</script>
+
+
+<script>
+function snapfucn() 
+{
+	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
+	if(number_of_warnings1 <= 5)
+	{
+		alert("Warning : Your Face Id is Not matching Be in a video Frame !..");
+		//snapshot();
+		
+	}
+	else
+	{
+		window.location.href="malpractice.html";
+	 }
+	number_of_warnings1++;
+	localStorage.setItem("number_of_warnings1", number_of_warnings1);
+		
+    //setTimeout(snapshot, 5000);
+}
+
+</script>
+
+
+<script type="text/javascript">
+
+	 function startdemo()
+     {
+		 var iframe = document.getElementById("myFrame");
+		 iframe.style.display = "block";
+     	
+     }
+               
+
+$(document).ready(function(){
+	
+	$("#overlay").fadeIn(300);
+
+	var lakshya_id=localStorage.getItem("lakshya_id");
+	
+	var assessment_id=localStorage.getItem("assessment_id");
+	
+	$.ajax({   
+        
+		url:"https://toyota-lakshya-onlineassessment.in/api/get_assessment_details/?id="+assessment_id+ "",
+       	type:"get",
+       	data: "json",               
+        success: function(data)
+        {    
+        	var obj = data.objects;	
+        	 var i = 0;     	
+            			var cate = obj[0].assessment_name;
+            			var desc = obj[0].total_marks;
+            			var title = obj[0].total_questions;
+            			
+            			
+            			var duration = obj[0].duration
+            			
+            			var assessment_description = data.objects[0].assessment_description_json[0];
+            			var assessment_description1 = data.objects[0].assessment_description_json[1];
+            			var assessment_description2 = data.objects[0].assessment_description_json[2];
+            			var assessment_description3 = data.objects[0].assessment_description_json[3];
+            			var assessment_description4 = data.objects[0].assessment_description_json[4];
+            			var assessment_description5 = data.objects[0].assessment_description_json[5];
+            			var assessment_description6 = data.objects[0].assessment_description_json[6];
+            			var assessment_description7 = data.objects[0].assessment_description_json[7];
+
+            			
+            			
+            			//alert(assessment_description);
+            			
+            			var cate1 = obj[0].duration;
+            		//	var cat = obj[i].id;
+            		
+            		localStorage.setItem("timer",cate1);
+            		
+            		localStorage.setItem("name",cate);
+            		
+            		//alert(name);
+            			
+            		
+            		
+            			/* ele = ele.replace("cate", cate);
+            			ele = ele.replace("desc", desc);
+            			ele = ele.replace("title", title);
+            			ele = ele.replace("cate1", cate1);
+            			ele = ele.replace("assessment_description", assessment_description);
+            		//	ele = ele.replace("cat", cat);
+            			
+      			   
+        			collection += ele;
+        		
+        		 */
+        			
+        		document.getElementById('asd').innerHTML = assessment_description;
+     			document.getElementById('fgh').innerHTML = cate;
+     			document.getElementById('fgh1').innerHTML = title;
+     			document.getElementById('fgh2').innerHTML = desc;
+     			document.getElementById('fgh3').innerHTML = duration;
+
+				if(assessment_description1 == undefined)
+     			{
+					document.getElementById('asd1').innerHTML = " ";
+
+				 }
+				 else
+				 {
+					document.getElementById('asd1').innerHTML = assessment_description1;
+
+				 }
+				 if(assessment_description2 == undefined)
+     			{
+					document.getElementById('asd2').innerHTML = " ";
+
+				 }
+				 else
+				 {
+					document.getElementById('asd2').innerHTML = assessment_description2;
+
+				 }
+				 if(assessment_description3 == undefined)
+     			{
+					document.getElementById('asd3').innerHTML = " ";
+
+				 }
+				 else
+				 {
+					document.getElementById('asd3').innerHTML = assessment_description3;
+
+				 }
+				 if(assessment_description4 == undefined)
+     			{
+					document.getElementById('asd4').innerHTML = " ";
+
+				 }
+				 else
+				 {
+					document.getElementById('asd4').innerHTML = assessment_description4;
+
+				 }
+				 if(assessment_description5 == undefined)
+     			{
+					document.getElementById('asd5').innerHTML = " ";
+
+				 }
+				 else
+				 {
+					document.getElementById('asd5').innerHTML = assessment_description5;
+
+				 }
+    			document.getElementById('test_id').innerHTML = "Instructions For"+ " " +cate;   	
+        	
+            //$("#bodypage").html(collection); 
+          
+            // document.getElementById("start").disabled = true;
+            
+        }
+
+    }).done(function()  {
+   setTimeout(function(){
+           $("#overlay").fadeOut(300); },300); });
+			
+		
+});
+
+</script>
+
+<script type="text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+    
+</script>
+
+<script type="text/javascript">
+
+var url=localStorage.getItem("access");
+
+
+if(url == 0)
+	{
+	
+	window.location.href="#";
+	}
+else 
+{
+	
+ 	//window.location.href="https://tkmserviceelearning.com/";
+ 	
+}
+
+
+</script>
+
+<script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script>
+
+
+</html>

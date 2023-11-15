@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title>FR</title>
+</head>
+
+<style>
+
+
+#abc
+ {
+ 
+ background-image : url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;  
+  
+ } 
+ 
+ 
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+ video{
+  width: 100%;
+  max-height: 100%;
+}
+
+
+#overlay{
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.01);
+}
+.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.is-hide{
+	display:none;
+}
+
+.navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar {
+    height: 60px;
+}
+
+</style>
+
+<body>
+
+
+ <nav class="navbar navbar-default" role="navigation" style="background-color:#ED1B26">
+	<div class="container">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	 
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+		  <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="68px;height:20px"></a></li>
+		  <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Face Recognition</a></li>
+		  <li class="social pull-right" style="visibility: hidden;"><a href="#">Social Links</a></li>
+		</ul>
+	  </div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+  </nav>
+
+  
+<div class="container">
+<div class="row">
+
+<div class="col-sm-6">
+<video id="video" width="640" height="480" autoplay ></video>
+<canvas  hidden id="canvas" width="640" height="480"> </canvas>
+
+</div>
+
+<div class="col-sm-6" style="margin-top: 4%;">
+ <div class="well" >
+<h4 style="font-family: 'Source Sans Pro', sans-serif;text-align: center;color:#444444" id="validationreplace"><b>The Image will be captured in <span id="countdowntimer">10</span> Seconds</b></h4>
+</div>
+
+ <button type="button" class="btn btn-primary" onclick="Refresh()" style="margin-left:38%;">REFRESH</button>
+
+
+</div>
+</div>
+</div>
+
+
+<div id="overlay">
+  <div class="cv-spinner">
+      <span class="spinner"></span>
+  </div>
+</div>
+
+<script>
+function Refresh(){
+    window.location.reload();
+} 
+</script>
+
+<script type="text/javascript">
+ function updateOnlineStatus() 
+ {
+
+	 window.location.reload();
+
+ }
+ function updateOfflineStatus() 
+ {
+ 	alert("No Internet Connection....");
+
+ }
+ window.addEventListener('online', updateOnlineStatus);
+ window.addEventListener('offline', updateOfflineStatus); 
+
+</script>
+
+<script type="text/javascript">
+ 
+  $(document).ready(function() {
+
+    video_open();
+            call_afteer();
+
+  });
+  </script>
+
+<script type="text/javascript">
+
+  async function video_open()
+  {
+  
+       var video = document.getElementById('video');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('playsinline', '')
+  
+  // Get access to the camera!
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) 
+  {
+      // Not adding `{ audio: true }` since we only want video now
+     await navigator.mediaDevices.getUserMedia({ video: true, video: {
+      facingMode: 'user'} }).then(function(stream) 
+      {
+          //video.src = window.URL.createObjectURL(stream);
+          video.srcObject = stream;
+          video.play();
+  
+      }).catch(function (err) {
+          alert("Please setup your webcam first. ");
+          window.location.href = "https://tkmserviceelearning.com/";
+  
+        });
+  }
+  
+  // Elements for taking the snapshot
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var video = document.getElementById('video');
+  
+  // Trigger photo take
+  
+  setTimeout(function()
+  {	
+    
+    context.drawImage(video, 0, 0, 640, 480);
+        
+    var my_image = convertCanvasToImage(canvas);
+      //document.body.appendChild(my_image);
+  
+     function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = jQuery.trim(cookies[i]);
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  
+      var csrftoken = getCookie('csrftoken');
+  
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://toyota-lakshya-onlineassessment.in/fr_api/upload_recognition_image_encoded/', true);
+      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      var formData = new FormData();
+      formData.append('image_testing_file_encoded', my_image.src);
+      xhr.send(formData);
+  
+      xhr.onload = function () 
+      {
+            if (xhr.status == 200) 
+            {
+              var id = JSON.parse(xhr.responseText).id;
+              localStorage.setItem("imageid",id);
+              
+              //alert("sucess");	  
+              validation();
+            }    
+            else   
+            {
+              alert('An error occurred!');
+            }
+      };  
+  
+  },10000);
+  
+  }
+  
+  function convertCanvasToImage(canvas) 
+  {
+    var image = new Image();
+    image.src = canvas.toDataURL("image/png");
+    return image;
+    response = get_response(request) 
+  }
+  </script>
+  
+  <script type="text/javascript">
+  function call_afteer()
+  {
+      var timeleft = 10;
+      var downloadTimer = setInterval(function(){
+      timeleft--;
+      document.getElementById("countdowntimer").textContent = timeleft;
+      if(timeleft <= 0)
+          clearInterval(downloadTimer);
+      },1000);
+  }
+  </script>
+
+
+<script type="text/javascript">
+
+function validation() 
+{
+	imageid=localStorage.getItem("imageid");
+	lakshya_id=localStorage.getItem("lakshya_id");
+	document.getElementById('validationreplace').innerHTML = "Please wait while your request is being processed.";
+	
+	$.ajax({   
+        url:"https://toyota-lakshya-onlineassessment.in/fr_api/predict_image_v2/?image_id="+imageid+"&login_id="+lakshya_id+"",
+     	  type:"get",
+       	data: "json",
+        success: function(data)
+      {    
+     	
+        	var obj = data.label;
+        	
+          if(obj == lakshya_id)
+        {   	  
+            if (/iPhone|iPod/.test(navigator.userAgent)) {
+                window.location.href = "questionsDemo.html";
+              }
+              else if ( window.innerWidth < 600 ) {
+                window.location.href = "questionsDemo.html";
+              }
+              else{
+                window.location.href = "Questions.html";
+              }
+
+       }
+        else
+        	{    		
+        	//	alert("ID is Not Matching");
+           		window.location.href="profileerror.html";
+        	}
+            
+        }
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

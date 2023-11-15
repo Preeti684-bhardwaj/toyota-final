@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Toyota Proctored Exam ! Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <style type="text/css">
+  
+ img
+ {
+  background-repeat:no-repeat;
+  top:0px;
+ } 
+ 
+ 
+ body
+  { 
+  background: url('homepage/Group 15.png'); 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+   } 
+ 
+ 
+#bold
+{
+color:white;
+font-size: 22px;
+font-family : 'Source Sans Pro', sans-serif ;
+padding:10px;
+ text-decoration: underline;
+
+}
+
+
+
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+  
+.row
+{
+margin-top: 1%;
+
+
+}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: black;
+   text-align: center;
+}
+
+
+.column {
+  float: left;
+  margin-left:17px;
+  width: 170px;
+  padding: 8px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col-sm-6
+{
+margin-top: 28%;
+color:red;
+font-weight:normal ;
+font-family : 'Source Sans Pro', sans-serif ;
+font-size: 40px;
+
+}
+
+
+
+  </style>
+  
+  
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" style="border-radius:0;background-color:transparent;border:none	">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <img src="img/toyota_logo.png">
+    </div>
+    
+    <div>
+    
+    <ul class="nav navbar-nav">
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        
+        <li><a href="#"><b id ="bold">Home</b></a></li>
+          <li><a href="video/FR FAQ pdf.pdf" target="_blank"><b id ="bold">FAQ</b></a></li>
+          <li><a href="testlogin.html"><b id ="bold"> Take A Test  </b></a></li>
+            <li onclick="commingsoon()"><a href="#"><b id ="bold"> Dashboards Login</b></a></li>   
+            
+            
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b id ="bold">Update Profile <span class="caret"></span></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="https://toyota-lakshya-onlineassessment.in/admin/login/?next=/admin/core/salesconsultant/"><b style="font-size: 19px;">Participant Section</b></a></li>
+          <li><a href="https://toyota-lakshya-onlineassessment.in/admin/login/?next=/admin/core/salesconsultant/"><b style="font-size: 19px;">Dealer Section</b></a></li>
+         
+        </ul>
+      </li>
+             
+            <li><a href="contactus.html"><b id ="bold">Support </b></a></li>
+      
+      
+      
+      
+    </ul>
+    </div>
+    
+  </div>
+</nav>
+  <div class="container">
+
+  <div class="col-sm-12" style="text-align: center;margin-top: 37%;color:#C31D1D"><h1><b>LAKSHYA Proctored Online Assessment</b></h1></div>
+
+
+</div>
+
+<div class="footer">
+
+<p>All contents of this website are: Copyright (c) 2015 Toyota Kirloskar Motor Private Limited, Plot No.1, Bidadi Industrial Area,<br>
+ Ramanagara District -562 109, State of Karnataka, Republic of India. All rights reserved.
+
+ </p>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+var url=localStorage.getItem("access");
+
+if(url == 0)
+{
+
+	 window.location.href = "#";
+	 localStorage.removeItem("access");
+
+}
+else
+	 {
+	 window.location.href = "#";
+	 }
+	 
+	 
+	 
+	 function commingsoon()
+	 {
+		 alert("Coming Soon !");
+	 }
+
+
+</script> 
+
+
+
+
+
+</body>
+</html>

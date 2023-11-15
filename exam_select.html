@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/mobile.css">
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+<title>Exam LIST</title>
+<style>
+
+
+#mybox
+{
+   text-align:center;
+   background-color: #f9f9f9;
+   box-shadow: 1px 1px 5px grey;
+   border-radius: 4px;
+  
+}
+
+ #abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;
+  
+ 
+ } 
+ 
+ .navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 100% !important;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+      ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.btn-group, .btn-group-vertical {
+    box-shadow: none !important;
+    boder-bottom: 1;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+.bootstrap-select .dropdown-menu li.selected a {
+    background-color: #0099D5 !important;
+    color: white !important;
+}
+
+
+
+    .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 12px 5px;
+}
+
+
+.btn-group, .btn-group-vertical
+{
+    box-shadow: none !important ;
+}
+
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #0099D5;
+    outline: 0;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 320px !important;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar-center {
+  height: 100%;
+  width: auto;
+  padding: 7px 14px;
+}
+
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+   
+  }
+  .navbar-nav li{
+	float: none;
+      display: inline-block;
+  }
+
+  .navbar {
+    height: 60px;
+}
+
+
+</style>
+
+		
+</head>	
+	
+<body style="background-color: #E6E6E6">
+
+  <nav class="navbar navbar-default" role="navigation" style="background-color:#ED1B26">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+     
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="68px;height:20px"></a></li>
+        <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Exam List</a></li>
+        <li class="social pull-right" ><a href="Profile.html" style="color: white;font-family:Calibri regular;"><img src="img/back.png" style="width: 32px;height: 22px;"></a></li>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </nav>
+
+
+<br>
+<br>
+
+
+
+ <div class="container-fluid" style="margin-top: 5%;">
+ <div class="row">
+    <div class="col-sm-4" >
+
+    </div>
+ <div class="col-sm-6" >
+ <b style="font-family: 'Source Sans Pro', sans-serif;font-size: 20px;" >Select Exam :</b>
+ <select id="bodypage2" class="selectpicker"  onChange="toyotaway()">
+
+    <!-- <option>Select Your Exam</option> -->
+
+ </select>
+</div>
+</div>
+<br><br>
+<div class="text-center">
+
+
+        <button type="button" class="btn btn-info" onclick="move_nxt()">Proceed</button>
+
+</div>
+</div>
+ 
+  	
+  
+
+
+<script type="text/javascript">
+
+$(document).ready(function() 
+{
+	
+	
+	var select = 
+	  "<option value=\"id\" id=\"abc\">opt_value</option><br>";
+	
+	
+	var option = "";
+
+
+	var invigilator_id=localStorage.getItem("invigilator_id");
+
+    var assessment_name1 = localStorage.getItem('assessment_name');
+    console.log(assessment_name1)
+
+    var movies2 = JSON.parse(assessment_name1);
+
+
+
+    for ( var i = 0; i < movies2.length; i++)
+	{
+	    
+	    
+    	var opt ="";
+		
+    	opt =  select;
+    	
+    	var assessment_name = movies2[i].assessment_name;
+    	var id = movies2[i].assessment_id;
+
+        opt = opt.replace("opt_value", assessment_name);
+    	opt = opt.replace("id", id);                	
+
+
+        option += opt;
+        
+        localStorage.setItem("id",id);
+
+	    
+	}
+    $("#bodypage2").html(option);
+    
+    
+    var selectBox = document.getElementById("bodypage2");
+	selectBox.addEventListener('change', toyotaway);
+	
+
+
+		
+	
+	
+});
+
+
+</script>
+
+
+<script>
+
+ function move_nxt()
+ {
+    var e = document.getElementById("bodypage2");
+    var ids = e.options[e.selectedIndex].value;
+    
+    localStorage.setItem("assessment_id",ids);
+
+    window.location.href = "instructions.html";
+
+ }
+
+</script>
+
+
+
+
+
+<script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
+
+
+</body>
+</html>

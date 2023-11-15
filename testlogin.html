@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+body { 
+  background: url('img/background_brighter.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+     top:5px;
+    transform: translatex(-50%);
+}
+
+input:focus {
+    outline:none;
+} 
+.form-control {
+    background: #fff;
+    box-shadow: none !important;
+    }
+
+	input[type="text"] {
+	  border: none;
+  border-bottom: 1px solid  red  ;
+  
+  
+	}
+
+	input[type="password"] {
+	  border: none;
+  border-bottom: 1px solid  red  ;
+	}
+	
+#abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;  
+ 
+ } 
+
+</style>
+   
+   
+</head>
+<body>
+
+
+<nav class="navbar navbar-default" id="abc" style="background-color:#101010;border:none">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+    
+     </div>
+      <div id="navbar" class="navbar-collapse collapse">
+     
+      <ul class="nav navbar-nav navbar-center">
+      
+      <p style="color:white;font-family:'Source Sans Pro', sans-serif ;font-size: 30px;"> Lakshya Proctored Online Assessment</p>
+     
+      
+
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a></a></li>
+          <li><a></a></li>
+          <li><a></a></li>
+          <li><a href="index.html"><img src="img/home_3 (2).png"></a></li> 
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  
+
+<div class="container">
+<div class="row">
+	
+	
+	
+
+<div class="col-sm-4" style="margin-top: 15%;box-shadow: none !important;">
+<div class="well" style="border-radius:3%">
+    <form onsubmit="return test()">    
+   
+      <input type="text" class="form-control"  placeholder="Lakshya_Id" id="input1" name="Lakshya ID" required style="background-color: #FAF6F6"><br>
+      <input type="password" class="form-control"  placeholder="Password" id="input2" name="password" required style="background-color: #FAF6F6"><br>
+      
+    <button type="submit" class="btn btn-danger"style="margin-left: 38%;">LOGIN</button>
+    </form>
+    </div>
+</div>
+
+</div>
+</div>	
+
+
+
+
+ <script type="text/javascript">
+ 
+
+ 
+ 
+function test() 
+{ 
+	
+	var uid = document.getElementById('input1').value;
+	var pass = document.getElementById('input2').value;
+	
+	$.ajax({
+		
+		url : "https://toyota-lakshya-onlineassessment.in/api/validate_app_login/?login_id="+uid+"&password="+pass+"",
+		type : "get",
+		data: "json",
+		success : function(data)
+		{
+			
+			var status = data.status;
+			             
+			if(status=='success')
+			{
+		        
+				
+			  localStorage.setItem("lakshya_id",data.lakshya_id);
+				localStorage.setItem("dealer_name",data.dealer_name);
+				localStorage.setItem("dealer_id",data.dealer_id);
+				localStorage.setItem("sc_name",data.sc_name);
+				localStorage.setItem("sc_contact",data.sc_contact);
+				localStorage.setItem("sc_email",data.sc_email);
+				localStorage.setItem("left_profile_image",data.left_profile_image);
+				localStorage.setItem("front_profile_image",data.front_profile_image);
+				localStorage.setItem("right_profile_image",data.right_profile_image);
+				
+				
+				localStorage.setItem("access",0);
+				
+				
+				//localStorage.setItem("elapsed_time",0);
+				localStorage.setItem("number_of_warnings",1);
+				localStorage.setItem("number_of_warnings1",1);
+				localStorage.setItem("number_of_warnings2",1);
+				localStorage.setItem("number_of_warnings3",1);
+        localStorage.setItem("number_of_warnings4",1);
+        
+        var objs = data.assessment_list;
+
+        for ( var i = 0; i < objs.length; i++)
+	        	{
+					
+					localStorage.setItem("assessment_name", JSON.stringify(data.assessment_list));
+
+	        	}
+				
+				
+				var attempts =  data.number_of_attempts;
+				
+				if(attempts <= 2)
+					{
+					
+					window.location.href ='Environinfo.html';
+
+					}
+				else
+					{
+					
+					alert("Your Maximum Attempts To Login Are Finished");
+					window.location.href ='index.html';
+					
+          }
+          
+
+        
+					var assessment_name = data.assessment_list[i];
+					var id = data.assessment[i].id;
+
+										
+					localStorage.setItem("assessment_name", JSON.stringify(data.assessment));
+
+
+					
+					
+			
+			}
+			
+			else if (status=='failed')
+			
+			{
+		        alert(data.err);
+			}
+			
+		}	
+});
+
+	console.log(status); 
+	return false;
+}
+
+
+</script>
+
+<script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <style type="text/css">
+
+
+body { 
+  background: url('img/background_brighter.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 48%;
+    top:5px;
+    transform: translatex(-50%);
+}
+
+input:focus {
+    outline:none;
+} 
+.form-control {
+    background: #fff;
+    box-shadow: none !important;
+    }
+
+	input[type="text"] {
+	  border: none;
+  border-bottom: 1px solid  red ;
+  
+  
+  
+	}
+
+	input[type="password"] {
+	  border: none;
+  border-bottom: 1px solid  red ;
+  
+	}
+	
+ .dropdown
+ {text-align:center;background-color: transparent;margin-right: 30px;
+ } 
+ .button, .dropdown-menu{margin:10px auto} 
+ .dropdown-menu{width:200px; left:50%; margin-left:-100px; } 
+
+
+#abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ;
+  background-repeat:no-repeat;
+  height: 57px;  
+  
+ 
+ } 
+
+
+.container-fluid {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family : 'Source Sans Pro', sans-serif ;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.container-fluid input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
+
+.container-fluid:hover input ~ .checkmark 
+{
+  background-color: #E8363E;
+}
+
+.container-fluid input:checked ~ .checkmark
+ {
+  background-color: red;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.container-fluid input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.container-fluid .checkmark:after {
+ 	top: 4px;
+	left: 4px;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: white;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 20px;
+  margin-left: 5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+</style>
+   
+   
+</head>
+<body>
+
+
+<nav class="navbar navbar-default" id="abc" style="background-color:#101010;border:none">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+    
+     </div>
+      <div id="navbar" class="navbar-collapse collapse">
+     
+      <ul class="nav navbar-nav navbar-center">
+      
+      <p style="color:white;font-family:'Source Sans Pro', sans-serif ;font-size: 30px;"> Dashboard Dealer Login</p>
+     
+      
+<!--           <li><a href="#"><img src="homepage/dashboard login.png" style="height: 42px"></a> -->
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a></a></li>
+          <li><a></a></li>
+          <li><a></a></li>
+          <li><a href="index.html"><img src="img/home_3 (2).png"></a></li> 
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  
+
+<div class="container">
+<div class="row">
+
+		
+	
+	
+<div class="col-sm-4" style="margin-top: 15%;#fff;box-shadow: none !important;">
+<div class="well" style="border-radius:3%">
+
+		 
+		 
+ <div class="column">
+ 
+<label class="container-fluid">Individual
+  <input type="radio" name="radio" onclick="nav1()">
+  <span class="checkmark"></span>
+</label>
+
+  </div>
+  
+  
+  <div class="column">
+   
+<label class="container-fluid" onclick="nav()">Manager
+  <input type="radio" name="radio"/>
+  <span class="checkmark"></span>
+  
+ 
+  
+</label>
+
+
+    </div>
+  
+<h5 style="text-align: center;color:red"><b>Please Choose Your Login Options</b></h5><br>
+
+<a href = "dashboardlogin.html"><img alt="" src="img1/back.png" style="margin-left: 38%;">  </a>
+
+
+    <!-- <form onsubmit="return test()">    
+   
+      <input type="text" class="form-control" name="username" id="input1" placeholder="Individual_login id" required style="background-color: #FAF6F6"><br>
+      <input type="password" class="form-control" name="password" id="input2" placeholder="Password" required style="background-color: #FAF6F6">      <br>
+      
+     <button type="submit" class="btn btn-danger" style="margin-left: 38%;">LOGIN</button>
+    </form> -->
+    </div>
+</div>
+
+</div>
+</div>	
+
+
+
+ <script type="text/javascript">
+
+ function nav()
+ {
+    	window.location.href="managerlogin.html";
+ }
+ function nav1()
+ {
+    	window.location.href="dashindividualogin.html";
+ }
+ 
+function test() 
+{ 
+	
+	var uid = document.getElementById('input1').value;
+	var pass = document.getElementById('input2').value;
+	
+	$.ajax({
+		
+		url : "https://toyota-lakshya-onlineassessment.in/api/dashboard_login/?login_id="+uid+"&password="+pass+"",
+		type : "get",
+		data: "json",
+		success : function(data)
+		{
+			
+			var status = data.status;
+			
+			var dashboard = data.dashboard;
+			
+			localStorage.setItem("login_id",uid);
+			localStorage.setItem("dashboard",dashboard);
+			
+			
+			 if(status=='success' && dashboard == "tkm")
+			{
+				window.location.href = "TkmDashboard.html";
+				
+			}
+			
+			else
+			{
+		        alert("UserId OR Password is incorrect!..");
+			}
+			
+		}	
+});
+
+	console.log(status); 
+	return false;
+}
+
+
+localStorage.setItem("access",0);
+
+</script>
+
+<script>
+$(document).ready(function() {
+function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+});
+</script>
+
+
+
+</body>
+</html>

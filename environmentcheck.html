@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  
+  
+<title>EnvironmentCheck</title>
+
+
+<style type="text/css">
+#abc
+ {
+ 
+ background-image:url('img/toyota_logo.png') ; 
+  background-repeat:no-repeat;
+  height: 57px;  
+ 
+ } 
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+ video,canvas {
+  width: 100%;
+  max-height: 100%;
+}
+
+</style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-default" id="abc" style="background-color: #ED1B26;">
+    <div class="container-fluid" style=";">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+     <a class="navbar-brand">
+      </a>
+       </div>     
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li ><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-center">
+            <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Environment Check</a></li>
+           
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class=""><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  
+  
+  <div class="container">
+  <div class="row">
+  
+  	<div class="col-sm-6">
+	<video id="video" autoplay="true"></video>
+	<img src="" id="con" hidden>
+	<h3 style="margin-top: 50px;font-family: calibri regular"><b> <span id="countdowntimer"></span> </b></h3>
+	<canvas  hidden id="canvas"> </canvas>
+ 	<pre id="bright" hidden></pre>
+	</div>
+	
+	<div class = "col-sm-1">
+	
+	</div>
+	
+	<div class="col-sm-5" style="margin-top: 2%;">
+    <div class="well" >
+    <img alt="" src="img1/LIGHT1_grey.png" id="xyz" style="margin-left: 42%"><br>
+      <p style="color:#444444;margin-left:25%;font-family: 'Source Sans Pro', sans-serif;font-size:20px;" id="passed1">Light Test is Taking Place</p>
+    </div>
+    <div class="well">
+    <img alt="" src="img1/Bandwidth-_grey.png" id="abcde" style="margin-left: 42%"><br>
+    <b style="color:#444444;margin-left: 32%;" id="progress" ></b> 
+    <p style="color:#444444; margin-left: 25%;font-family: 'Source Sans Pro', sans-serif;font-size:20px;" id="passed">Internet Test is Taking Place</p>
+    </div>
+    <div>
+    <a href="faceinfo.html"><button type="button" class="btn btn" id="hideshow"  style="font-family: calibri regular;width:30%;background-color: #E0E0E0;color:white">NEXT</button></a>
+ 	<button type="button" class="btn btn-primary" onclick="Refresh()" style="width:30%;margin-left: 18px" >REFRESH</button>
+ 	<a href="index.html"><button type="button" class="btn btn-danger" style="width:30%;margin-left: 18px">EXIT</button></a>
+     </div>
+  </div>
+  
+  </div> 
+  </div>
+  <br>
+  <div class="container">
+  
+  <div class="row">
+  
+  
+  <div id="div"></div>
+  </div>
+  </div>
+  
+
+<script>
+function Refresh(){
+    window.location.reload();
+} 
+</script>
+
+<script type="text/javascript">
+	// Grab elements, create settings, etc.
+	
+var video = document.getElementById('video');
+
+	
+// Get access to the camera!
+var constraints = {audio: false, video: true};
+var video = document.querySelector("video");
+
+function successCallback(stream) {
+  video.srcObject = stream;
+  video.play();
+}
+
+function errorCallback(error) {
+  console.log("navigator.getUserMedia error: ", error);
+}
+
+navigator.mediaDevices.getUserMedia(constraints)
+  .then(successCallback)
+  .catch(errorCallback);
+  
+  
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+
+setTimeout(function()
+{	
+	
+	context.drawImage(video, 0, 0, 640, 480);
+			
+	
+	var dataURL = canvas.toDataURL("image/png");
+	  //alert(dataURL);
+	localStorage.setItem("img",dataURL);
+
+	var abc = localStorage.getItem( "img");
+	document.getElementById("con").src = abc;
+	
+    function getImageBrightness(imageSrc,callback) 
+    {
+    	
+        var img = document.createElement("img");
+        img.src = imageSrc;
+        img.style.display = "none";
+        document.body.appendChild(img);
+
+        
+        var colorSum = 0;
+
+        img.onload = function() 
+        {
+            // create canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = this.width;
+            canvas.height = this.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(this,0,0);
+            
+           
+
+            var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+            var data = imageData.data;
+            var r,g,b,avg;
+			
+           
+            
+              for(var x = 0, len = data.length; x < len; x+=4) {
+                r = data[x];
+                g = data[x+1];
+                b = data[x+2];
+                
+                avg = Math.floor((r+g+b)/3);
+                colorSum += avg;
+                
+         }
+
+            var brightness = Math.floor(colorSum / (this.width*this.height));
+            callback(brightness);
+          }
+    }
+
+     
+    setTimeout(function()
+    		{		
+
+    			getImageBrightness(document.body.getElementsByTagName('img')[0].src,function(brightness) 
+    		{
+    					 document.getElementsByTagName('pre')[0].innerHTML = "Brightness: "+brightness;
+    		    		
+
+    		var imagess = new Array()
+    		imagess[0] = "img1/LIGHT1.png";
+    		imagess[1] = "img1/LIGHT 2.1.png";
+    		      
+
+    		if(brightness > 50)
+    		{
+    			//alert("passed");
+    			environdisplay();
+    			document.getElementById("xyz").src=imagess[0]
+    			document.getElementById("passed1").innerHTML = "Light Test Is Successful";
+
+    		}
+    		else
+    		{
+    				environdisplay1();
+    				document.getElementById("xyz").src=imagess[1]
+    				document.getElementById("passed1").innerHTML = "Ambient Light Test Is Failed";
+
+    		}
+    		      
+
+    		});
+    			
+    		},1);	
+    
+},5100);
+    
+</script>
+
+<script type="text/javascript">
+
+document.getElementById("hideshow").disabled=true;
+
+var imageAddr = "https://toyota-lakshya-onlineassessment.in/media/dealer_profile/68acb877-b4e2-4e43-8dd5-55fa8026d1a0.jpeg"; 
+var downloadSize = 49953;
+
+
+function ShowProgressMessage(msg) {
+    if (console) {
+        if (typeof msg == "string") {
+            console.log(msg);
+        } else {
+            for (var i = 0; i < msg.length; i++) {
+                console.log(msg[i]);
+            }
+        }
+    }
+    
+    var oProgress = document.getElementById("progress");
+    if (oProgress) {
+        var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+        oProgress.innerHTML = actualHTML;
+    }
+}
+
+function InitiateSpeedDetection() {
+    //ShowProgressMessage("Loading the image, please wait...");
+    window.setTimeout(MeasureConnectionSpeed, 1);
+};    
+
+if (window.addEventListener) {
+    window.addEventListener('load', InitiateSpeedDetection, false);
+} else if (window.attachEvent) {
+    window.attachEvent('onload', InitiateSpeedDetection);
+}
+
+function MeasureConnectionSpeed() {
+    var startTime, endTime;
+    var download = new Image();
+    download.onload = function () {
+        endTime = (new Date()).getTime();
+        showResults();
+    }
+    
+    download.onerror = function (err, msg) {
+        //ShowProgressMessage("No internet....");
+    }
+    
+    startTime = (new Date()).getTime();
+    var cacheBuster = "?nnn=" + startTime;
+    download.src = imageAddr + cacheBuster;
+    
+    function showResults() {
+        var duration = (endTime - startTime) / 1000;
+        var bitsLoaded = downloadSize * 8;
+        var speedBps = (bitsLoaded / duration).toFixed(2);
+        var speedKbps = (speedBps / 1024).toFixed(2);
+        var speedMbps = (speedKbps / 1024).toFixed(2);
+      
+
+		
+var imageees = new Array()
+imageees[0] = "img1/Bandwidth-01.png";
+imageees[1] = "img1/Bandwidth-02.png";
+
+setTimeout(function()
+{		
+
+if(speedMbps > 0.25)
+{ 
+	
+	document.getElementById("abcde").src=imageees[1]
+	
+	document.getElementById("passed").innerHTML = "Internet Test Is Successful";
+	
+	document.getElementById("hideshow").style.backgroundColor= "#1ADA67";
+	
+	ShowProgressMessage([
+						"(Intenet Speed is Good)"
+						]);
+}
+
+else if(speedMbps > 0.5)
+{ 
+	
+	document.getElementById("abcde").src=imageees[1]
+	
+	document.getElementById("passed").innerHTML = "Internet Test Is Successful";
+	
+	document.getElementById("hideshow").style.backgroundColor= "#1ADA67";
+	
+	ShowProgressMessage([
+						"(Intenet Speed is Excellent)"
+						]);
+}
+
+else
+{
+	environdisplay1();
+	
+	document.getElementById("abcde").src=imageees[0]
+	
+  document.getElementById("passed").innerHTML = "Internet Test Is Failed";
+  
+	ShowProgressMessage([
+						"(Intenet Speed is Bad)"
+						]);
+
+}
+		},5200);
+
+}
+}
+
+</script>
+
+
+<script>
+var images = new Array()
+images[0] = "img1/Bandwidth-01.png";
+images[1] = "img1/Bandwidth-02.png";
+
+function updateOnlineStatus() 
+{
+document.getElementById("abcde").src = images[1];
+
+document.getElementById("hideshow").disabled = false;
+document.getElementById("hideshow").style.backgroundColor= "#1ADA67";
+
+}
+function updateOfflineStatus() 
+{
+	document.getElementById("hideshow").disabled = true;
+
+	document.getElementById("abcde").src = images[0];
+
+}
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOfflineStatus); 
+
+</script>
+
+<script type="text/javascript">
+
+function environdisplay()
+{
+	document.getElementById("hideshow").disabled=false;
+	
+	
+}
+function environdisplay1()
+{
+	document.getElementById("hideshow").disabled=true;
+	
+}
+
+</script>
+<script type="text/javascript">
+
+var url=localStorage.getItem("access");
+
+
+if(url == 0)
+	{
+	
+	window.location.href="#";
+	}
+else 
+{
+	
+ 	window.location.href="index.html";
+ 	
+}
+
+
+</script>
+
+</body>
+</html>
