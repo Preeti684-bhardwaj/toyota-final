@@ -81,12 +81,7 @@ $.ajax({
 
             		
             		 $("#attended").append(collectionsss);
-            		 
-            		 
-            		
-            		
-            		 
-        
+            
             localStorage.setItem("id1",question_id);
 			question_type = obj.question_type;
 			
@@ -124,11 +119,6 @@ $.ajax({
 
             
         }
-
-
-
-
-	
 	
 }).done(function()  {
     setTimeout(function(){
@@ -152,6 +142,7 @@ function submitanswer(){
 
 	
 	var demo_time = (document.getElementById('demo').innerHTML);
+	console.log(demo_time)
 	if(demo_time.length == "11")
 	{
 		
@@ -175,7 +166,7 @@ function submitanswer(){
 	}
 
 	var value;
-
+ console.log(elapsed_time)
 
 if(question_type=='single_choice')
 {
