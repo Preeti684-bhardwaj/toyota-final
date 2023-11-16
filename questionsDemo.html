@@ -369,7 +369,7 @@ footer {
          var loc = window.location.href.replace(hash, '');
 
          loc += (loc.indexOf('?') < 0? '?' : '&') + 'r';
-         setTimeout(function(){window.location.href = loc;}, 100);
+         setTimeout(function(){window.location.href = loc + hash;}, 100);
       } 
     
   });
