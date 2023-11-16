@@ -444,6 +444,8 @@ navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} 
  video.play();
 })
 .catch(function(err) {
+  alert(err)
+  alert("line 448")
 	 alert("Please Enable Camera and continue your assessment !...")
 	 window.location.href = "https://tkmserviceelearning.com/";
  //console.log("An error occured! " + err);

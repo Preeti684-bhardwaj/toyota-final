@@ -238,7 +238,7 @@ footer {
 		<ul class="nav navbar-nav" style="display: flex;align-items: center;justify-content:space-around;">
 		  <li ><a href="#"><img src="img/toyota_logo.png" width="66px" height="28px" style="margin-top:5px;margin-left:12px;"></a></li>
       <li ><a href="#" style="color:white;font-size:15px;margin-top: 8px;">Assessment</a></li>
-      <li id="toggle" style="list-style-type: none;"> <a href="timer1.html"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
+      <li id="toggle" style="list-style-type: none;"> <a href="#" onclick="check()"   style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
       <li style="list-style-type: none;"> <a href="#"  onclick="quit()"     style="color: white;text-decoration: none;"><img src="img1/quit.png"><p><span>Quit</span></p></a></li>
     </ul>
 	  </div><!-- /.navbar-collapse -->
@@ -382,13 +382,21 @@ $(document).ready(function()
       window.location.href = "examsummary.html";
     } 
     else {
+      txt="You Pressed Cancel!"
     }
    
   }
 
 </script>
 
+<script type="text/javascript">
 
+  function check()
+      {
+            window.location.replace("timer1.html");
+      }
+  
+  </script>
 
 <script type="text/javascript">
  function updateOnlineStatus() 
@@ -458,6 +466,8 @@ navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} 
  video.play();
 })
 .catch(function(err) {
+  alert(err)
+  alert("line 448")
 	 alert("Please Enable Camera and continue your assessment !...")
 	 window.location.href = "https://tkmserviceelearning.com/";
  //console.log("An error occured! " + err);
