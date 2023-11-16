@@ -288,13 +288,13 @@ canvas {
 	function sendtoquestionspage() {
 
 			if (/iPhone|iPod/.test(navigator.userAgent)) {
-				window.location.href = "questionsDemo.html";
+				window.location.href = "questionsDemo.html"+"?r";
 			}
 			else if ( window.innerWidth < 600 ) {
-				window.location.href = "questionsDemo.html";
+				window.location.href = "questionsDemo.html"+"?r";
 			}
 			else{
-				window.location.href = "Questions.html";
+				window.location.href = "Questions.html"+"?r";
 			}
 					
        }
