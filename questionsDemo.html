@@ -238,7 +238,7 @@ footer {
 		<ul class="nav navbar-nav" style="display: flex;align-items: center;justify-content:space-around;">
 		  <li ><a href="#"><img src="img/toyota_logo.png" width="66px" height="28px" style="margin-top:5px;margin-left:12px;"></a></li>
       <li ><a href="#" style="color:white;font-size:15px;margin-top: 8px;">Assessment</a></li>
-      <li id="toggle" style="list-style-type: none;"> <a href="#" onclick="check()"   style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
+      <li id="toggle" style="list-style-type: none;"> <a href="#" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
       <li style="list-style-type: none;"> <a href="#"  onclick="quit()"     style="color: white;text-decoration: none;"><img src="img1/quit.png"><p><span>Quit</span></p></a></li>
     </ul>
 	  </div><!-- /.navbar-collapse -->
@@ -359,18 +359,24 @@ footer {
 <!-- face recognition background -->
 
 <script type="text/javascript">
-$(document).ready(function() 
-{
-         get_next_qn();
-		
-	if(location.search.indexOf('r') < 0)
- 	{
-	    var hash = window.location.hash;
- 	    var loc = window.location.href.replace(hash, '');
- 	    loc += (loc.indexOf('?') < 0? '?' : '&') + 'r';
- 	    setTimeout(function(){window.location.href = loc + hash;}, 100);
- 	 } 
-	
+$(document).ready(function() {
+    get_next_qn();
+
+    // Check if the URL doesn't contain 'r' in the search part
+    if (location.search.indexOf('r') < 0) {
+        var hash = window.location.hash;
+        
+        // Remove existing hash from the URL
+        var loc = window.location.href.replace(hash, '');
+        
+        // Append 'r' to the URL either with '?' or '&'
+        loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+        
+        // Redirect to the modified URL after a brief delay
+        setTimeout(function() {
+            window.location.href = loc + hash;
+        }, 100);
+    }
 });
 
 </script>
@@ -456,39 +462,34 @@ let detectFace = document.getElementById('face');
 let detectEye = document.getElementById('eye');
 
 function startCamera() {
-    if (streaming) return;
 
-    // Check if getUserMedia is supported
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Request user permission to access the camera
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
-            .then(function (s) {
-                stream = s;
-                video.srcObject = s;
-                video.play();
-            })
-            .catch(function (err) {
-                console.error(err);
-                alert("Please Enable Camera and continue your assessment!");
-                window.location.href = "https://tkmserviceelearning.com/";
-            });
+if (streaming) return;
 
-        video.addEventListener("canplay", function (ev) {
-            if (!streaming) {
-                videoWidth = video.videoWidth;
-                videoHeight = video.videoHeight;
-                video.setAttribute("width", videoWidth);
-                video.setAttribute("height", videoHeight);
-                canvasOutput.width = videoWidth;
-                canvasOutput.height = videoHeight;
-                streaming = true;
-            }
-            startVideoProcessing();
-        }, false);
-    } else {
-        // Handle the case where getUserMedia is not supported
-        alert("getUserMedia is not supported on this browser.");
-    }
+navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} })
+ .then(function(s) {
+ stream = s;
+ video.srcObject = s;
+ video.play();
+})
+.catch(function(err) {
+	 alert("Please Enable Camera and continue your assessment !...")
+	 window.location.href = "https://tkmserviceelearning.com/";
+ //console.log("An error occured! " + err);
+});
+
+video.addEventListener("canplay", function(ev){
+ if (!streaming) {
+   videoWidth = video.videoWidth;
+   videoHeight = video.videoHeight;
+   video.setAttribute("width", videoWidth);
+   video.setAttribute("height", videoHeight);
+   canvasOutput.width = videoWidth;
+   canvasOutput.height = videoHeight;
+   streaming = true;
+ }
+ startVideoProcessing();
+}, false);
+
 }
 
 // video.addEventListener('onloadedmetadata', startCamera);
@@ -650,6 +651,7 @@ if(ftvalue2 > 600)
 	ftvalue2 = 0;
 	
 }
+
 
 function snapshot() 
 {	
