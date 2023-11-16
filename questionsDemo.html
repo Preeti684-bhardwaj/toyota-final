@@ -359,25 +359,22 @@ footer {
 <!-- face recognition background -->
 
 <script type="text/javascript">
-$(document).ready(function() {
-    get_next_qn();
+  $(document).ready(function() 
+  {
+           get_next_qn();
+      
+    if(location.search.indexOf('r') < 0)
+     {
+        var hash = window.location.hash;
+         var loc = window.location.href.replace(hash, '');
 
-    // Check if 'r' is present in the search part of the URL
-    if (location.search.indexOf('r') < 0) {
-        var loc = window.location.href;
-
-        // Append 'r' to the URL either with '?' or '&'
-        loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
-
-        // Redirect to the modified URL after a brief delay
-        setTimeout(function() {
-            window.location.href = loc;
-        }, 100);
-    }
-});
-
-
-</script>
+         loc += (loc.indexOf('?') < 0? '?' : '&') + 'r';
+         setTimeout(function(){window.location.href = loc;}, 100);
+      } 
+    
+  });
+  
+  </script>
 
 <script type="text/javascript" >
 
