@@ -459,35 +459,19 @@ function startCamera() {
 
 if (streaming) return;
 
-// navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} })
-//  .then(function(s) {
-//  stream = s;
-//  video.srcObject = s;
-//  video.play();
-// })
-// .catch(function(err) {
-//   alert(err)
-//   alert("line 448")
-// 	 alert("Please Enable Camera and continue your assessment !...")
-// 	 window.location.href = "https://tkmserviceelearning.com/";
-//  //console.log("An error occured! " + err);
-// });
-
-// Triggered by a user gesture, e.g., button click
-document.getElementById('startCameraButton').addEventListener('click', function() {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
-        .then(function(s) {
-            stream = s;
-            video.srcObject = s;
-            video.play();
-        })
-        .catch(function(err) {
-            alert(err);
-            alert("Please Enable Camera and continue your assessment!");
-            window.location.href = "https://tkmserviceelearning.com/";
-        });
+navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} })
+ .then(function(s) {
+ stream = s;
+ video.srcObject = s;
+ video.play();
+})
+.catch(function(err) {
+  alert(err)
+  alert("line 448")
+	 alert("Please Enable Camera and continue your assessment !...")
+	 window.location.href = "https://tkmserviceelearning.com/";
+ //console.log("An error occured! " + err);
 });
-
 
 video.addEventListener("canplay", function(ev){
  if (!streaming) {
