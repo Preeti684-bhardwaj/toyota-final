@@ -287,10 +287,9 @@ canvas {
 
 	function sendtoquestionspage() {
 
-		if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-        // Redirect to "questionsDemo.html" for touch-enabled devices
-        window.location.href = "questionsDemo.html";
-    }
+			if (/iPhone|iPod/.test(navigator.userAgent)) {
+				window.location.href = "questionsDemo.html";
+			}
 			else if ( window.innerWidth < 600 ) {
 				window.location.href = "questionsDemo.html";
 			}
