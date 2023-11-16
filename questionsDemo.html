@@ -456,34 +456,39 @@ let detectFace = document.getElementById('face');
 let detectEye = document.getElementById('eye');
 
 function startCamera() {
+    if (streaming) return;
 
-if (streaming) return;
+    // Check if getUserMedia is supported
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Request user permission to access the camera
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+            .then(function (s) {
+                stream = s;
+                video.srcObject = s;
+                video.play();
+            })
+            .catch(function (err) {
+                console.error(err);
+                alert("Please Enable Camera and continue your assessment!");
+                window.location.href = "https://tkmserviceelearning.com/";
+            });
 
-navigator.mediaDevices.getUserMedia({ video: true, video: { facingMode: 'user'} })
- .then(function(s) {
- stream = s;
- video.srcObject = s;
- video.play();
-})
-.catch(function(err) {
-	 alert("Please Enable Camera and continue your assessment !...")
-	 window.location.href = "https://tkmserviceelearning.com/";
- //console.log("An error occured! " + err);
-});
-
-video.addEventListener("canplay", function(ev){
- if (!streaming) {
-   videoWidth = video.videoWidth;
-   videoHeight = video.videoHeight;
-   video.setAttribute("width", videoWidth);
-   video.setAttribute("height", videoHeight);
-   canvasOutput.width = videoWidth;
-   canvasOutput.height = videoHeight;
-   streaming = true;
- }
- startVideoProcessing();
-}, false);
-
+        video.addEventListener("canplay", function (ev) {
+            if (!streaming) {
+                videoWidth = video.videoWidth;
+                videoHeight = video.videoHeight;
+                video.setAttribute("width", videoWidth);
+                video.setAttribute("height", videoHeight);
+                canvasOutput.width = videoWidth;
+                canvasOutput.height = videoHeight;
+                streaming = true;
+            }
+            startVideoProcessing();
+        }, false);
+    } else {
+        // Handle the case where getUserMedia is not supported
+        alert("getUserMedia is not supported on this browser.");
+    }
 }
 
 // video.addEventListener('onloadedmetadata', startCamera);
