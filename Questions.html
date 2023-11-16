@@ -330,22 +330,30 @@ option {
 	</div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-    // Check if 'r' is present in the search part of the URL
-    if (location.search.indexOf('r') >= 0) {
-        // 'r' is present, proceed to get the next question
-        get_next_qn();
-    } else {
-        // 'r' is not present, modify the URL to include 'r' and then get the next question
-        var hash = window.location.hash;
-        var loc = window.location.href.replace(hash, '');
-        loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
-        setTimeout(function() {
-            window.location.href = loc + hash;
-        }, 100);
-    }
-});
+  $(document).ready(function() {
+      get_next_qn();
+  
+      // Check if the URL doesn't contain 'r' in the search part
+      if (location.search.indexOf('r') < 0) {
 
+        // Append 'r' to the URL either with '?' or '&'
+        loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+
+        
+          var hash = window.location.hash;
+          
+          // Remove existing hash from the URL
+          var loc = window.location.href.replace(hash, '');
+          
+          // Append 'r' to the URL either with '?' or '&'
+          loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+          
+          // Redirect to the modified URL after a brief delay
+          setTimeout(function() {
+              window.location.href = loc + hash;
+          }, 100);
+      }
+  });
   
   </script>
 
