@@ -379,7 +379,28 @@ footer {
     var quitConfirmation = confirm("Are you sure you want to quit? Your progress will be lost.");
 
     if (quitConfirmation) {
-       window.location.href ="examsummary.html";
+      url="examsummary.html"
+      function windowLocation(url){
+    var X = setTimeout(function(){
+        window.location.replace(url);
+        return true;
+    },300);
+
+    if( window.location = url ){
+        clearTimeout(X);
+        return true;
+    } else {
+        if( window.location.href = url ){
+            clearTimeout(X);
+            return true;
+        }else{
+            clearTimeout(X);
+            window.location.replace(url);
+            return true;
+        }
+    }
+    return false;
+};
     }
 }
   </script>
