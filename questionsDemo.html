@@ -380,7 +380,7 @@ footer {
 
   function quit() {
     if (confirm("Are Your Sure Want To Quit!") == true) {
-      window.location.href = "examsummary.html";
+      window.location.replace("examsummary.html");
     } 
     else {
       txt="You Pressed Cancel!"
@@ -933,7 +933,6 @@ function cehckingface()
 <script>
 function snapfucn() 
 {
-
 	var number_of_warnings1 = localStorage.getItem("number_of_warnings1");
 	if(number_of_warnings1 <= 5)
 	{
@@ -947,9 +946,7 @@ function snapfucn()
 	}
 	number_of_warnings1++;
 	localStorage.setItem("number_of_warnings1", number_of_warnings1);
-		
     //setTimeout(snapshot, 5000);
-  
 }
 
 </script>
