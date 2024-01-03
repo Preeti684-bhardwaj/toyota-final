@@ -347,21 +347,17 @@ option {
   });
   
   </script>
-
-<script type="text/javascript" >
-        function quit() {
-          var txt;
-          if (confirm("Are Your Sure Want To Quit!")) {
-
-            txt = "You pressed OK!";
-            window.location.replace("examsummary.html");
-
-          } 
-          else {
-            txt = "You pressed Cancel!";
-          }
-        
-        }
+<script>
+  function quit() {
+    var txt;
+    if (confirm("Are Your Sure Want To Quit!")) {
+      txt = "You pressed OK!";
+      location.assign(location.origin + "/examsummary.html")
+      // document.location.assign(document.location.origin + "/examsummary.html");
+    } else {
+      txt = "You pressed Cancel!";
+    }
+  }
   </script>
 
 <script type="text/javascript">
