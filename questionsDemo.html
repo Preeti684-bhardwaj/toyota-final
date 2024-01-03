@@ -375,16 +375,14 @@ footer {
   </script>
 
 <script>
-  function quit() {
-    var txt;
-    if (confirm("Are Your Sure Want To Quit!")) {
-      txt = "You pressed OK!";
-      alert('you sure');
-      window.location.replace("examsummary.html");
-    } else {
-      txt = "You pressed Cancel!";
+ function quit() {
+    var quitConfirmation = confirm("Are you sure you want to quit? Your progress will be lost.");
+
+    if (quitConfirmation) {
+        // Redirect to examsummary.html
+        window.location.href = "examsummary.html";
     }
-  }
+}
   </script>
 
 <script type="text/javascript">
