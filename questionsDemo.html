@@ -239,7 +239,7 @@ footer {
 		  <li ><a href="#"><img src="img/toyota_logo.png" width="66px" height="28px" style="margin-top:5px;margin-left:12px;"></a></li>
       <li ><a href="#" style="color:white;font-size:15px;margin-top: 8px;">Assessment</a></li>
       <li id="toggle" style="list-style-type: none;"> <a href="#" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
-      <li style="list-style-type: none;"> <a href="#"  onclick="quit()"     style="color: white;text-decoration: none;"><img src="img1/quit.png"><p><span>Quit</span></p></a></li>
+      <li style="list-style-type: none;"> <a href="#"  onclick="quit()" style="color: white;text-decoration: none;"><img src="img1/quit.png"><p><span>Quit</span></p></a></li>
     </ul>
 	  </div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
@@ -379,11 +379,10 @@ footer {
     var txt;
     if (confirm("Are Your Sure Want To Quit!")) {
       txt = "You pressed OK!";
-      window.location.href ='examsummary.html';
+      window.location ='examsummary.html';
     } else {
       txt = "You pressed Cancel!";
     }
-   
   }
   </script>
 
