@@ -374,18 +374,18 @@ footer {
   
   </script>
 
-<script type="text/javascript">
+<script>
   function quit() {
-    console.log("quit function called");
-    if (confirm("Are You Sure You Want To Quit!")) {
-      console.log("User confirmed, redirecting to examsummary.html");
-      window.location.replace("examsummary.html");
+    var txt;
+    if (confirm("Are Your Sure Want To Quit!")) {
+      txt = "You pressed OK!";
+      window.location.href ='examsummary.html';
     } else {
-      console.log("User pressed cancel");
-      txt = "You Pressed Cancel!";
+      txt = "You pressed Cancel!";
     }
+   
   }
-</script>
+  </script>
 
 <script type="text/javascript">
   function check()
