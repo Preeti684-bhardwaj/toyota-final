@@ -179,7 +179,7 @@ option {
     
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="80px" height="50px"></a></li>
+          <li class="pull-left"><a href="#"><img src="img/toyota_logo.png" width="95px" height="80px"></a></li>
           <li><a href="#"></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-center">
@@ -349,12 +349,12 @@ option {
   </script>
 <script>
   function quit() {
-     var quitConfirmation = confirm("Are you sure you want to quit? Your progress will be lost.");
- 
-     if (quitConfirmation) {
-        window.location.href ="examsummary.html";
-     }
- }
+    if (confirm("Are Your Sure Want To Quit!")) {
+      window.location.replace("examsummary.html");
+    } else {
+      txt = "You pressed Cancel!";
+    }
+  }
    </script>
  
  <script type="text/javascript">
