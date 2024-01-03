@@ -1075,7 +1075,7 @@ function secondstohms(seconds)
 	    if( seconds == 0 && minutes == 0 && hours == 0 )
 	    {
 	        alert("Your Time Is Up..");
-	    	window.location.href="examsummary.html";
+	    	window.location ="examsummary.html";
 	      
 	    }
 	    
@@ -1127,10 +1127,10 @@ function secondstohms(seconds)
 
 <script>
   function quit() {
-    var txt;
+    // var txt;
     if (confirm("Are Your Sure Want To Quit!")) {
-      txt = "You pressed OK!";
-      location.assign(location.origin + "/examsummary.html")
+      // txt = "You pressed OK!";
+      window.location = "/examsummary.html"
       // document.location.assign(document.location.origin + "/examsummary.html");
     } else {
       txt = "You pressed Cancel!";
@@ -1158,7 +1158,7 @@ function secondstohms(seconds)
 function check()
 {
 	
-	window.location.href='timer1.html';
+	window.location ='timer1.html';
 	
 }
 
