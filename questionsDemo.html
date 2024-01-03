@@ -361,8 +361,7 @@ footer {
 <script type="text/javascript">
   $(document).ready(function() 
   {
-    get_next_qn();
-      
+    get_next_qn(); 
     if(location.search.indexOf('r') < 0)
      {
         var hash = window.location.hash;
@@ -371,32 +370,28 @@ footer {
          loc=loc + (loc.indexOf('?') < 0? '?' : '&') + 'r';
          setTimeout(function(){window.location.href = loc + hash;}, 100);
       } 
-    
   });
   
   </script>
 
-<script type="text/javascript" >
-
+<script type="text/javascript">
   function quit() {
-    if (confirm("Are Your Sure Want To Quit!") == true) {
+    console.log("quit function called");
+    if (confirm("Are You Sure You Want To Quit!")) {
+      console.log("User confirmed, redirecting to examsummary.html");
       window.location.replace("examsummary.html");
-    } 
-    else {
-      txt="You Pressed Cancel!"
+    } else {
+      console.log("User pressed cancel");
+      txt = "You Pressed Cancel!";
     }
-   
   }
-
 </script>
 
 <script type="text/javascript">
-
   function check()
       {
             window.location.replace("timer1.html");
       }
-  
   </script>
 
 <script type="text/javascript">
