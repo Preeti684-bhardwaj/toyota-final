@@ -196,6 +196,17 @@ button + button {
     background-repeat:no-repeat;
     
  } 
+ @media (max-width: 767px) {
+    .brand-logo {
+      text-align:center;
+    }
+
+    .brand-logo li {
+      display: block;
+      font-size: 30px;
+      margin-left: 70%;
+    }
+  }
 
 </style>
 
@@ -208,7 +219,9 @@ button + button {
       <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="pull-left"><a href="#"><img src="img/toyota_logo.png"   style="margin-top:-15px;margin-left:-90px;width:207px;height:61px"></a></li> -->
-        <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Profile</a></li>
+        <div class="brand-logo">
+          <li><a href="#" style="color:white;font-family: 'Source Sans Pro', sans-serif;font-size: 25px;">Profile</a></li>
+        </div>
         <li class="social pull-right" style="visibility: hidden;"><a href="#">Social Links</a></li>
       </ul>
       </div><!-- /.navbar-collapse -->
