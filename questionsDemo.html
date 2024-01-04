@@ -220,7 +220,11 @@ footer {
   justify-content: center;
   /* gap: 5px; */
 }
-
+@media (max-width: 767px) {
+  .assessment{
+    margin-left: 183px;
+  }
+}
 </style>
   
   
@@ -237,7 +241,7 @@ footer {
 	  <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav" style="display: flex;align-items: center;justify-content:space-around;">
 		  <!-- <li ><a href="#"><img src="img/toyota_logo.png" style="margin-top:-15px;margin-left:-50px;width:207px;height:64px"></a></li> -->
-      <li ><a href="#" style="color:white;font-size:15px;margin-top: 8px;">Assessment</a></li>
+      <div class="assessment"><li ><a href="#" style="color:white;font-size:15px;margin-top: 8px;">Assessment</a></li></div>
       <li id="toggle" style="list-style-type: none;"> <a href="/timer1.html" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
       <li style="list-style-type: none;"> <a href="/examsummary.html"  onclick="quit()" style="color: white;text-decoration: none;"><img src="img1/quit.png"><p><span>Quit</span></p></a></li>
     </ul>
