@@ -187,9 +187,8 @@ option {
            
         </ul>
  <ul class="navbar-nav navbar-right">
- 
-<li id="toggle" style="list-style-type: none;"><a href="/timer1.html" onclick="check()"   style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/pause.png" style="margin-top: 14px;padding-left: 11px;"><p style="padding-right: 15px">Pause</p></a></li>
-<li style="list-style-type: none;"><a href="/examsummary.html" onclick="quit()"    style="color: white;font-family: 'Source Sans Pro', sans-serif;text-decoration: none;cursor: pointer;"><img src="img1/quit.png" style="margin-top: 14px;margin-left: 15px;text-decoration: none;"><p style="padding-left: 10px;"><span>Quit</span></p></a></li>
+  <li id="toggle" style="list-style-type: none;"> <a href="/timer1.html" onclick="check()"  style="color: white;text-decoration: none;"><img src="img1/pause.png"><p>Pause</p></a></li>
+  <li style="list-style-type: none;"> <a style="color: white;text-decoration: none;"><img src="img1/quit.png" onclick="quit()" ><p><span>Quit</span></p></a></li>
 
 
 </ul>
@@ -348,21 +347,20 @@ option {
   </script>
 <script>
   function quit() {
-    if (confirm("Are Your Sure Want To Quit!")) {
+    if (confirm("Are you sure you want to quit?")) {
       window.location.replace("examsummary.html");
     } else {
-      txt = "You pressed Cancel!";
+      window.location.href("#");
     }
   }
-   </script>
- 
- <script type="text/javascript">
-   function check()
-       {
-         window.location.href="timer1.html";
-       }
-   </script>
+</script>
 
+<script type="text/javascript">
+  function check()
+      {
+            window.location.replace("timer1.html");
+      }
+  </script>
 
 <!-- face recognition background -->
 
