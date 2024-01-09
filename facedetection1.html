@@ -178,7 +178,6 @@ function Refresh(){
 <script type="text/javascript">
  
   $(document).ready(function() {
-    $("#overlay").fadeIn(300);
     video_open();
             call_afteer();
 
@@ -314,13 +313,13 @@ function validation()
           if(obj == lakshya_id)
         {   	  
             if (/iPhone|iPod/.test(navigator.userAgent)) {
-                window.location.href = "questionsDemo.html";
+                window.location.href = "questionsDemo.html"+"?r";
               }
               else if ( window.innerWidth < 600 ) {
-                window.location.href = "questionsDemo.html";
+                window.location.href ="questionsDemo.html"+"?r";
               }
               else{
-                window.location.href = "Questions.html";
+                window.location.href = "Questions.html"+"?r";
               }
 
        }
